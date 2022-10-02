@@ -44,12 +44,12 @@ function Marker({ pick, imageSize })
     return coordinates.x + textDivDimension.width + pinDivDimension.width < width;
   };
 
-  const textstyleHover = () => (
+  const textStyleHover = () => (
     calculateOverflow()
       ? { left: 0, transition: ".5s" }
       : { right: 0, transition: ".5s" });
 
-  const textstyle = () => (
+  const textStyle = () => (
     calculateOverflow()
       ? { left: `-${textDivDimension.width}px` }
       : { right: `-${textDivDimension.width}px` }
@@ -100,7 +100,7 @@ function Marker({ pick, imageSize })
               className="marker-text"
               ref={textMarker}
               style={
-                hover ? textstyleHover() : textstyle()
+                hover ? textStyleHover() : textStyle()
               }
             >
               {name}
