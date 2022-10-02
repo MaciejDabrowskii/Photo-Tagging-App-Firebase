@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 /* eslint-disable max-len */
 /* eslint-disable no-unused-vars */
 import "./App.css";

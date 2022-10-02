@@ -5,12 +5,13 @@ import React, { useRef, useState, useEffect } from "react";
 import imageZZZ from "../../assets/random.jpg";
 import CharacterSelector from "./components/character-selector";
 import Marker from "./components/marker";
+import "./image-section.css";
 
-function ImageSection({ pickedCorrectly, setPickedCorrectly, addCorrect })
+function ImageSection({ pickedCorrectly, addCorrect })
 {
   const [selectorVisible, setSelectorVisible] = useState(false);
 
-  //   const [selectedCharacter, setSelectedCharacter] = useState("");
+  const [imageSize, setImageSize] = useState({});
 
   const [selectedCoords, setCselectedCoords] = useState({});
 
@@ -67,6 +68,10 @@ function ImageSection({ pickedCorrectly, setPickedCorrectly, addCorrect })
 
     const py = Math.round((y / ch) * ih);
 
+    setImageSize({ width: cw, height: ch });
+
+    console.log("getCoordinates", cw, ch, imageSize);
+
     return setCselectedCoords({ x: px, y: py });
   };
 
@@ -97,6 +102,7 @@ function ImageSection({ pickedCorrectly, setPickedCorrectly, addCorrect })
           selectedCoords={selectedCoords}
           addCorrect={addCorrect}
           setSelectorVisible={setSelectorVisible}
+          pickedCorrectly={pickedCorrectly}
         />
       )}
       {
@@ -104,6 +110,7 @@ function ImageSection({ pickedCorrectly, setPickedCorrectly, addCorrect })
           <Marker
             key={pick.name}
             pick={pick}
+            imageSize={imageSize}
           />
         ))
       }

@@ -1,3 +1,5 @@
+/* eslint-disable consistent-return */
+/* eslint-disable array-callback-return */
 import React from "react";
 import { validatePick } from "../../../utility functions/utility-functions";
 
@@ -7,6 +9,7 @@ function CharacterSelector(
     selectedCoords,
     addCorrect,
     setSelectorVisible,
+    pickedCorrectly,
   },
 )
 {
@@ -31,23 +34,29 @@ function CharacterSelector(
         top: `${selectedCoords.y}px`,
       }}
     >
-      {characters.map(({ name }) => (
-        <div
-          className="character-container"
-          key={name}
-        >
-          <button
-            type="button"
-            onClick={() => (
-              validatePick(selectedCoords, name, characters)
-                ? handleCorrect(name)
-                : handleIncorrect(name)
-            )}
-          >
-            {name}
-          </button>
-        </div>
-      ))}
+      {characters.map(({ name }) =>
+      {
+        if (!pickedCorrectly.some((pick) => pick.name === name))
+        {
+          return (
+            <div
+              className="character-container"
+              key={name}
+            >
+              <button
+                type="button"
+                onClick={() => (
+                  validatePick(selectedCoords, name, characters)
+                    ? handleCorrect(name)
+                    : handleIncorrect(name)
+                )}
+              >
+                {name}
+              </button>
+            </div>
+          );
+        }
+      })}
     </div>
   );
 }
