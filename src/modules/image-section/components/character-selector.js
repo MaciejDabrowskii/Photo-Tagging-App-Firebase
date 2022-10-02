@@ -5,12 +5,23 @@ function CharacterSelector(
   {
     characters,
     selectedCoords,
-    setSelectedCharacter,
     addCorrect,
-    selectedCharacter,
+    setSelectorVisible,
   },
 )
 {
+  const handleCorrect = (name) =>
+  {
+    addCorrect(name, selectedCoords);
+    setSelectorVisible(false);
+  };
+
+  const handleIncorrect = (name) =>
+  {
+    setSelectorVisible(false);
+    console.log("wrong!!!");
+  };
+
   return (
     <div
       className="character-selector-container"
@@ -29,8 +40,8 @@ function CharacterSelector(
             type="button"
             onClick={() => (
               validatePick(selectedCoords, name, characters)
-                ? addCorrect(name, selectedCoords)
-                : console.log(selectedCharacter)
+                ? handleCorrect(name)
+                : handleIncorrect(name)
             )}
           >
             {name}

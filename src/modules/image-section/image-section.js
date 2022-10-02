@@ -10,7 +10,7 @@ function ImageSection({ pickedCorrectly, setPickedCorrectly, addCorrect })
 {
   const [selectorVisible, setSelectorVisible] = useState(false);
 
-  const [selectedCharacter, setSelectedCharacter] = useState("");
+  //   const [selectedCharacter, setSelectedCharacter] = useState("");
 
   const [selectedCoords, setCselectedCoords] = useState({});
 
@@ -95,9 +95,8 @@ function ImageSection({ pickedCorrectly, setPickedCorrectly, addCorrect })
         <CharacterSelector
           characters={characters}
           selectedCoords={selectedCoords}
-          setSelectedCharacter={setSelectedCharacter}
           addCorrect={addCorrect}
-          selectedCharacter={pickedCorrectly}
+          setSelectorVisible={setSelectorVisible}
         />
       )}
       {
