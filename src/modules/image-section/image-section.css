@@ -1,3 +1,7 @@
+.marker-wrapper {
+    position: relative;
+}
+
 .text-div-wrapper {
     position: absolute;
 }
@@ -7,17 +11,33 @@
     overflow: hidden;
 }
 
+.marker-container {
+    position: absolute;
+}
+
 .marker-text {
     position: absolute;
-    padding: 6px;
+    padding: 16px;
     margin: 0;
     background-color: blue;
     white-space: nowrap;
     border-radius: 10px;
+    font-size: 32px;
+    font-weight: bolder;
 }
 
-.marker {
-    font-size: 42px;
+.marker-pin-outer {
+    font-size: 62px;
     bottom: 0;
+    color: white;
+}
+
+.marker-pin-inner {
+    font-size: 38px;
     color: red;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
 }

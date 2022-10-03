@@ -2,17 +2,25 @@
 /* eslint-disable array-callback-return */
 import React from "react";
 import { validatePick } from "../../../utility functions/utility-functions";
+import {
+  getPickedCorrectly,
+  useSetCorrectPicks,
+} from "../../../contexts/correct-picks-context";
 
-function CharacterSelector(
+function CharacterMenu(
   {
     characters,
     selectedCoords,
-    addCorrect,
     setSelectorVisible,
-    pickedCorrectly,
   },
 )
 {
+  const addCorrect = useSetCorrectPicks("aaaa", selectedCoords);
+
+  const pickedCorrectly = getPickedCorrectly();
+
+  console.log(useSetCorrectPicks(), pickedCorrectly);
+
   const handleCorrect = (name) =>
   {
     addCorrect(name, selectedCoords);
@@ -22,7 +30,6 @@ function CharacterSelector(
   const handleIncorrect = (name) =>
   {
     setSelectorVisible(false);
-    console.log("wrong!!!");
   };
 
   return (
@@ -61,4 +68,4 @@ function CharacterSelector(
   );
 }
 
-export default CharacterSelector;
+export default CharacterMenu;

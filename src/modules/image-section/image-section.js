@@ -3,11 +3,12 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
 import React, { useRef, useState, useEffect } from "react";
 import imageZZZ from "../../assets/random.jpg";
-import CharacterSelector from "./components/character-selector";
+import CharacterMenu from "./components/character-menu";
 import Marker from "./components/marker";
 import "./image-section.css";
+import { getPickedCorrectly } from "../../contexts/correct-picks-context";
 
-function ImageSection({ pickedCorrectly, addCorrect })
+function ImageSection()
 {
   const [selectorVisible, setSelectorVisible] = useState(false);
 
@@ -16,6 +17,8 @@ function ImageSection({ pickedCorrectly, addCorrect })
   const [selectedCoords, setCselectedCoords] = useState({});
 
   const gameImage = useRef();
+
+  const pickedCorrectly = getPickedCorrectly();
 
   const characters = [
     {
@@ -97,12 +100,12 @@ function ImageSection({ pickedCorrectly, addCorrect })
         onClick={() => setSelectorVisible((prevState) => !prevState)}
       />
       {selectorVisible && (
-        <CharacterSelector
+        <CharacterMenu
           characters={characters}
           selectedCoords={selectedCoords}
-          addCorrect={addCorrect}
+          // addCorrect={addCorrect}
+          // pickedCorrectly={pickedCorrectly}
           setSelectorVisible={setSelectorVisible}
-          pickedCorrectly={pickedCorrectly}
         />
       )}
       {

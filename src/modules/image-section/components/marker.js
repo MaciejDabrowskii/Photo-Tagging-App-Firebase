@@ -59,24 +59,21 @@ function Marker({ pick, imageSize })
     <div
       className="marker-container"
       style={{
-        position: "absolute",
         left: `${coordinates.x - pinDivDimension.width / 2}px`,
         top: `${coordinates.y - pinDivDimension.height}px`,
       }}
     >
-      <div style={{
-        position: "relative",
-        display: "flex",
-        flexDirection: "column",
-
-      }}
-      >
-        <div ref={markerPin}>
+      <div className="marker-wrapper">
+        <div ref={markerPin} style={{ display: "inline-block" }}>
           <FontAwesomeIcon
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)}
             icon={faLocationPin}
-            className="marker"
+            className="marker-pin-outer"
+          />
+          <FontAwesomeIcon
+            icon={faLocationPin}
+            className="marker-pin-inner"
           />
         </div>
         <div
@@ -84,9 +81,11 @@ function Marker({ pick, imageSize })
           style={calculateOverflow() ? {
             left: `${pinDivDimension.width}px`,
             width: `${textDivDimension.width}px`,
+            display: "inline-block",
           } : {
             right: `${pinDivDimension.width}px`,
             width: `${textDivDimension.width}px`,
+            display: "inline-block",
           }}
         >
           <div
@@ -99,9 +98,7 @@ function Marker({ pick, imageSize })
             <p
               className="marker-text"
               ref={textMarker}
-              style={
-                hover ? textStyleHover() : textStyle()
-              }
+              style={hover ? textStyleHover() : textStyle()}
             >
               {name}
             </p>
