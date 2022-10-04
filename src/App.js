@@ -4,26 +4,23 @@
 import "./App.css";
 import React, { useEffect, useRef, useState } from "react";
 import ImageSection from "./modules/image-section/image-section";
+import Timer from "./modules/timer";
 import { PicksProvider } from "./contexts/correct-picks-context";
+import { TimerProvider } from "./contexts/timer-context";
+import PickIndicator from "./modules/pick-indicator/pick-indicator";
 
 function App()
 {
-  // const [pickedCorrectly, setPickedCorrectly] = useState([]);
-
-  // const addCorrect = (name, coordinates) =>
-  // {
-  //   if (!pickedCorrectly.some((pick) => pick.name === name))
-  //   {
-  //     return setPickedCorrectly((prevState) => ([...prevState, { name, coordinates }]));
-  //   }
-  // };
-
   return (
-  // <div className="App">
-  // </div>
-    <PicksProvider>
-      <ImageSection />
-    </PicksProvider>
+    <div className="App">
+      <PicksProvider>
+        <ImageSection />
+        <PickIndicator />
+      </PicksProvider>
+      <TimerProvider>
+        <Timer />
+      </TimerProvider>
+    </div>
   );
 }
 

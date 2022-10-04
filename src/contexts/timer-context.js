@@ -8,6 +8,8 @@ const StartTimer = React.createContext();
 
 const StopTimer = React.createContext();
 
+const ResetTimer = React.createContext();
+
 export function getTimer()
 {
   return useContext(Timer);
@@ -23,22 +25,30 @@ export function useStopTimer()
   return useContext(StopTimer);
 }
 
-export function PicksProvider({ children })
+export function TimerProvider({ children })
 {
   const [timer, setTimer] = useState(0);
 
+  const [intervalId, setIntervalId] = useState(0);
+
   const startTimer = () =>
   {
-    setInterval(() => setTimer((prevState) => prevState + 0.2), 200);
+    const newIntervalId = setInterval(() => setTimer((prevState) => prevState + 0.2), 200);
+
+    setIntervalId(newIntervalId);
   };
 
-  const stopTimer = () => clearInterval(startTimer);
+  const stopTimer = () => clearInterval(intervalId);
+
+  const resetTimer = () => setTimer(0);
 
   return (
     <Timer.Provider value={timer}>
       <StartTimer.Provider value={startTimer}>
         <StopTimer.Provider value={stopTimer}>
-          {children}
+          <ResetTimer.Provider value={resetTimer}>
+            {children}
+          </ResetTimer.Provider>
         </StopTimer.Provider>
       </StartTimer.Provider>
     </Timer.Provider>

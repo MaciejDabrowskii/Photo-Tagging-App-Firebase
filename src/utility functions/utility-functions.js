@@ -15,4 +15,6 @@ const validatePick = (selectedCoords, name, data) =>
   );
 };
 
-export { validatePick };
+const isGuessed = (name, correctPicks) => correctPicks.some((pick) => pick.name === name);
+
+export { validatePick, isGuessed };

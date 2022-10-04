@@ -103,8 +103,6 @@ function ImageSection()
         <CharacterMenu
           characters={characters}
           selectedCoords={selectedCoords}
-          // addCorrect={addCorrect}
-          // pickedCorrectly={pickedCorrectly}
           setSelectorVisible={setSelectorVisible}
         />
       )}

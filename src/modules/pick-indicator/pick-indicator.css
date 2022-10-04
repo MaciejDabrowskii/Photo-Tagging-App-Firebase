@@ -1,0 +1,28 @@
+.indicator-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.character-indicator-container {
+    padding: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    transition: all 0.5s ease-in-out;
+}
+
+.character-indicator-container.correct {
+    background-color: rgba(94, 206, 123, 1);
+}
+
+.character-indicator >p {
+    display: inline-block;
+}
+
+.character-indicator-checkmark{
+    color: white;
+    transition: all 0.5s ease-in-out;
+    margin-right: 20px;
+}
