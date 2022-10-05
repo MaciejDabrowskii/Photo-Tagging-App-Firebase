@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/jsx-no-constructed-context-values */
 /* eslint-disable import/prefer-default-export */
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {
   GoogleAuthProvider,
   signInWithPopup,
@@ -9,19 +9,21 @@ import {
   signOut,
   onAuthStateChanged,
 } from "firebase/auth";
+import { UserMethods } from "./user-context";
 
 import { app, auth } from "../firebase/firebase-init";
 
-const SignInContext = React.createContext();
+const FirebaseContext = React.createContext();
 
-export function useSignIn()
+export function firebaseMethods()
 {
-  return useContext(SignInContext);
+  return useContext(FirebaseContext);
 }
 
 export function FirebaseProvider({ children })
 {
-  const [data, setData] = useState();
+  const { user, setUser } = UserMethods();
+  // const [data, setData] = useState();
 
   const signIn = () =>
   {
@@ -30,9 +32,23 @@ export function FirebaseProvider({ children })
     signInWithPopup(auth, provider);
   };
 
+  const LogOutGoogle = () => signOut(auth);
+
+  useEffect(() =>
+  {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) =>
+    {
+      setUser(currentUser);
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  const methods = { signIn, LogOutGoogle };
+
   return (
-    <SignInContext.Provider value={signIn}>
+    <FirebaseContext.Provider value={methods}>
       {children}
-    </SignInContext.Provider>
+    </FirebaseContext.Provider>
   );
 }

@@ -2,8 +2,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock } from "@fortawesome/free-solid-svg-icons";
 import { getTimer } from "../contexts/timer-context";
-
-import { useSignIn } from "../contexts/firebase-context";
+import LogButtons from "./Login-Logout-buttons/login-out-buttons";
 
 function Timer()
 {
@@ -11,24 +10,10 @@ function Timer()
     timer, startTimer, stopTimer, resetTimer,
   } = getTimer();
 
-  const signIn = useSignIn();
-
-  const handleSingnIn = async () =>
-  {
-    try
-    {
-      await signIn();
-    }
-    catch (error)
-    {
-      console.log(error);
-    }
-  };
-
   return (
     <div className="timer-container">
       <button type="button" onClick={startTimer}>Start</button>
-      <button type="button" onClick={resetTimer}>Stop</button>
+      <button type="button" onClick={stopTimer}>Stop</button>
       <FontAwesomeIcon className="timer-icon" icon={faClock} />
       <h3 className="timer-value">
         {`${(timer / 60)
@@ -39,6 +24,7 @@ function Timer()
           .toString()
           .match(/^-?\d+(?:\.\d{0,1})?/)[0]} s`}
       </h3>
+      <LogButtons />
     </div>
   );
 }
