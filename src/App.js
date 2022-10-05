@@ -8,18 +8,21 @@ import Timer from "./modules/timer";
 import { PicksProvider } from "./contexts/correct-picks-context";
 import { TimerProvider } from "./contexts/timer-context";
 import PickIndicator from "./modules/pick-indicator/pick-indicator";
+import { FirebaseProvider } from "./contexts/firebase-context";
 
 function App()
 {
   return (
     <div className="App">
-      <PicksProvider>
-        <ImageSection />
-        <PickIndicator />
-      </PicksProvider>
-      <TimerProvider>
-        <Timer />
-      </TimerProvider>
+      <FirebaseProvider>
+        <PicksProvider>
+          <ImageSection />
+          <PickIndicator />
+        </PicksProvider>
+        <TimerProvider>
+          <Timer />
+        </TimerProvider>
+      </FirebaseProvider>
     </div>
   );
 }

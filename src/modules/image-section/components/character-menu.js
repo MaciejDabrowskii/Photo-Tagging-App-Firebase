@@ -2,10 +2,7 @@
 /* eslint-disable array-callback-return */
 import React from "react";
 import { validatePick } from "../../../utility functions/utility-functions";
-import {
-  getPickedCorrectly,
-  useSetCorrectPicks,
-} from "../../../contexts/correct-picks-context";
+import { correctPicks } from "../../../contexts/correct-picks-context";
 
 function CharacterMenu(
   {
@@ -15,11 +12,11 @@ function CharacterMenu(
   },
 )
 {
-  const addCorrect = useSetCorrectPicks("aaaa", selectedCoords);
+  const { pickedCorrectly, addCorrect } = correctPicks();
 
-  const pickedCorrectly = getPickedCorrectly();
+  // const addCorrect = useSetCorrectPicks("aaaa", selectedCoords);
 
-  console.log(useSetCorrectPicks(), pickedCorrectly);
+  // const pickedCorrectly = getPickedCorrectly();
 
   const handleCorrect = (name) =>
   {

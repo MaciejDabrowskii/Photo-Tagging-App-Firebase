@@ -6,7 +6,7 @@ import imageZZZ from "../../assets/random.jpg";
 import CharacterMenu from "./components/character-menu";
 import Marker from "./components/marker";
 import "./image-section.css";
-import { getPickedCorrectly } from "../../contexts/correct-picks-context";
+import { correctPicks } from "../../contexts/correct-picks-context";
 
 function ImageSection()
 {
@@ -18,7 +18,7 @@ function ImageSection()
 
   const gameImage = useRef();
 
-  const pickedCorrectly = getPickedCorrectly();
+  const { pickedCorrectly } = correctPicks();
 
   const characters = [
     {
@@ -72,8 +72,6 @@ function ImageSection()
     const py = Math.round((y / ch) * ih);
 
     setImageSize({ width: cw, height: ch });
-
-    console.log("getCoordinates", cw, ch, imageSize);
 
     return setCselectedCoords({ x: px, y: py });
   };

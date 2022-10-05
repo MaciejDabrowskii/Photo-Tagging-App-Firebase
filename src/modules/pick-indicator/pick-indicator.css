@@ -4,6 +4,10 @@
     gap: 12px;
 }
 
+.indicator-container:last-child .character-indicator-container  {
+    border-bottom: 0px;
+}
+
 .character-indicator-container {
     padding: 12px;
     display: flex;
@@ -11,10 +15,17 @@
     align-items: center;
     background-color: white;
     transition: all 0.5s ease-in-out;
+    border-bottom: 3px solid rgba(99, 95, 95, 0.63);
+}
+
+.character-indicator-container:last-child {
+    border: none;
+    margin-bottom: 10px;
 }
 
 .character-indicator-container.correct {
     background-color: rgba(94, 206, 123, 1);
+    border: none;
 }
 
 .character-indicator >p {
@@ -25,4 +36,6 @@
     color: white;
     transition: all 0.5s ease-in-out;
     margin-right: 20px;
+    font-size: 2rem;
+    padding: 10px;
 }

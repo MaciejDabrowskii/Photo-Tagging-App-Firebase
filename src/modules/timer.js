@@ -3,29 +3,43 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock } from "@fortawesome/free-solid-svg-icons";
 import {
   getTimer,
-  useStartTimer,
-  useStopTimer,
+  // useStartTimer,
+  // useStopTimer,
 } from "../contexts/timer-context";
+
+import { useSignIn } from "../contexts/firebase-context";
 
 function Timer()
 {
-  const timerValue = getTimer();
+  const {
+    timer, startTimer, stopTimer, resetTimer,
+  } = getTimer();
 
-  const startTimer = useStartTimer();
+  const signIn = useSignIn();
 
-  const stopTimer = useStopTimer();
+  const handleSingnIn = async () =>
+  {
+    try
+    {
+      await signIn();
+    }
+    catch (error)
+    {
+      console.log(error);
+    }
+  };
 
   return (
     <div className="timer-container">
       <button type="button" onClick={startTimer}>Start</button>
-      <button type="button" onClick={() => stopTimer()}>Stop</button>
+      <button type="button" onClick={resetTimer}>Stop</button>
       <FontAwesomeIcon className="timer-icon" icon={faClock} />
       <h3 className="timer-value">
-        {`${(timerValue / 60)
+        {`${(timer / 60)
           .toString()
           .split(".")[0]} m`}
         {" "}
-        {`${(timerValue % 60)
+        {`${(timer % 60)
           .toString()
           .match(/^-?\d+(?:\.\d{0,1})?/)[0]} s`}
       </h3>

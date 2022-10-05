@@ -2,16 +2,16 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import { isGuessed } from "../../../utility functions/utility-functions";
-import { getPickedCorrectly } from "../../../contexts/correct-picks-context";
+import { correctPicks } from "../../../contexts/correct-picks-context";
 
 function CharacterIndicator({ character })
 {
   const { name } = character;
 
-  const correctPicks = getPickedCorrectly();
+  const { pickedCorrectly } = correctPicks();
 
   return (
-    <div className={isGuessed(name, correctPicks)
+    <div className={isGuessed(name, pickedCorrectly)
       ? "character-indicator-container correct"
       : "character-indicator-container"}
     >
@@ -19,7 +19,7 @@ function CharacterIndicator({ character })
       <FontAwesomeIcon
         icon={faCheckCircle}
         className="character-indicator-checkmark"
-        style={isGuessed(name, correctPicks)
+        style={isGuessed(name, pickedCorrectly)
           ? { opacity: "1" }
           : { opacity: "0" }}
       />
