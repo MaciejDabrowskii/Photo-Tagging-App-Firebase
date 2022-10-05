@@ -14,10 +14,6 @@ function CharacterMenu(
 {
   const { pickedCorrectly, addCorrect } = correctPicks();
 
-  // const addCorrect = useSetCorrectPicks("aaaa", selectedCoords);
-
-  // const pickedCorrectly = getPickedCorrectly();
-
   const handleCorrect = (name) =>
   {
     addCorrect(name, selectedCoords);

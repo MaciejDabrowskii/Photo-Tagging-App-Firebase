@@ -4,26 +4,10 @@ import React, { useState, useContext } from "react";
 
 const Timer = React.createContext();
 
-// const StartTimer = React.createContext();
-
-// const StopTimer = React.createContext();
-
-// const ResetTimer = React.createContext();
-
 export function getTimer()
 {
   return useContext(Timer);
 }
-
-// export function useStartTimer()
-// {
-//   return useContext(StartTimer);
-// }
-
-// export function useStopTimer()
-// {
-//   return useContext(StopTimer);
-// }
 
 export function TimerProvider({ children })
 {
@@ -48,13 +32,7 @@ export function TimerProvider({ children })
 
   return (
     <Timer.Provider value={methods}>
-      {/* <StartTimer.Provider value={startTimer}>
-        <StopTimer.Provider value={stopTimer}>
-          <ResetTimer.Provider value={resetTimer}> */}
       {children}
-      {/* </ResetTimer.Provider>
-        </StopTimer.Provider>
-      </StartTimer.Provider> */}
     </Timer.Provider>
   );
 }

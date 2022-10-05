@@ -5,17 +5,10 @@ import React, { useState, useContext } from "react";
 
 const CorrectPicksContext = React.createContext();
 
-// const SetCorrectPicksContext = React.createContext();
-
 export function correctPicks()
 {
   return useContext(CorrectPicksContext);
 }
-
-// export function useSetCorrectPicks()
-// {
-//   return useContext(SetCorrectPicksContext);
-// }
 
 export function PicksProvider({ children })
 {
@@ -33,9 +26,7 @@ export function PicksProvider({ children })
 
   return (
     <CorrectPicksContext.Provider value={methods}>
-      {/* <SetCorrectPicksContext.Provider value={addCorrect}> */}
       {children}
-      {/* </SetCorrectPicksContext.Provider> */}
     </CorrectPicksContext.Provider>
   );
 }
