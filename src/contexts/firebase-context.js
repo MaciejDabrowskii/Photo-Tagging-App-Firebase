@@ -5,13 +5,14 @@ import React, { useContext, useEffect, useState } from "react";
 import {
   GoogleAuthProvider,
   signInWithPopup,
-  signInWithRedirect,
   signOut,
   onAuthStateChanged,
 } from "firebase/auth";
 import { UserMethods } from "./user-context";
 
-import { app, auth } from "../firebase/firebase-init";
+import {
+  app, auth, storeage, database,
+} from "../firebase/firebase-init";
 
 const FirebaseContext = React.createContext();
 
