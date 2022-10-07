@@ -25,9 +25,9 @@ function App()
           <BrowserRouter>
             {/* TODO delete this */}
             {/* <Test /> */}
-            <Routes>
-              <Route path="/" element={(<HomePage />)} />
-              <LevelStatesProvider>
+            <LevelStatesProvider>
+              <Routes>
+                <Route path="/" element={(<HomePage />)} />
                 <Route path="/select-level" element={(<LevelSelect />)} />
                 <Route
                   path="/game"
@@ -41,8 +41,8 @@ function App()
                     </Protect>
                 )}
                 />
-              </LevelStatesProvider>
-            </Routes>
+              </Routes>
+            </LevelStatesProvider>
           </BrowserRouter>
         </FirebaseProvider>
       </UserProvider>
