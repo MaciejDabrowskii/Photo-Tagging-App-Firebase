@@ -1,10 +1,9 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock } from "@fortawesome/free-solid-svg-icons";
-import { getTimer } from "../contexts/timer-context";
-import LogButtons from "./Login-Logout-buttons/login-out-buttons";
+import { getTimer } from "../../../contexts/timer-context";
 
-function Timer()
+function RenderTimer()
 {
   const {
     timer, startTimer, stopTimer, resetTimer,
@@ -24,9 +23,8 @@ function Timer()
           .toString()
           .match(/^-?\d+(?:\.\d{0,1})?/)[0]} s`}
       </h3>
-      <LogButtons />
     </div>
   );
 }
 
-export default Timer;
+export default RenderTimer;

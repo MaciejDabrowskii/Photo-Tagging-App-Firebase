@@ -8,6 +8,16 @@ import {
   signOut,
   onAuthStateChanged,
 } from "firebase/auth";
+import {
+  collection,
+  getDocs,
+  query,
+  get,
+  doc,
+  setDoc,
+  getDoc,
+} from "firebase/firestore";
+
 import { UserMethods } from "./user-context";
 
 import {
@@ -35,6 +45,37 @@ export function FirebaseProvider({ children })
 
   const LogOutGoogle = () => signOut(auth);
 
+  const addData = async (object, collectionName, documentName) =>
+  {
+    await setDoc(doc(database, collectionName, documentName), object);
+  };
+
+  const fetchCollectionData = async (collectionName) =>
+  {
+    const querySnapshot = await getDocs(collection(database, collectionName));
+
+    const data = [];
+
+    querySnapshot.forEach((document) =>
+    {
+      data.push(document.data());
+    });
+
+    return data;
+  };
+
+  const fetchSelectedGameData = async (
+    collectionName,
+    selectedGame,
+  ) =>
+  {
+    const docRef = doc(database, collectionName, selectedGame);
+
+    const docSnap = await getDoc(docRef);
+
+    return docSnap.data();
+  };
+
   useEffect(() =>
   {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) =>
@@ -45,7 +86,13 @@ export function FirebaseProvider({ children })
     return () => unsubscribe();
   }, []);
 
-  const methods = { signIn, LogOutGoogle };
+  const methods = {
+    signIn,
+    LogOutGoogle,
+    fetchCollectionData,
+    addData,
+    fetchSelectedGameData,
+  };
 
   return (
     <FirebaseContext.Provider value={methods}>

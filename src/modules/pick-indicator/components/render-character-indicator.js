@@ -2,13 +2,13 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import { isGuessed } from "../../../utility functions/utility-functions";
-import { correctPicks } from "../../../contexts/correct-picks-context";
+import { levelStatesMethods } from "../../../contexts/level-state-context";
 
 function CharacterIndicator({ character })
 {
   const { name } = character;
 
-  const { pickedCorrectly } = correctPicks();
+  const { pickedCorrectly } = levelStatesMethods();
 
   return (
     <div className={isGuessed(name, pickedCorrectly)

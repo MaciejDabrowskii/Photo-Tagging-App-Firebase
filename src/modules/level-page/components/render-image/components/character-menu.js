@@ -1,8 +1,10 @@
 /* eslint-disable consistent-return */
 /* eslint-disable array-callback-return */
 import React from "react";
-import { validatePick } from "../../../utility functions/utility-functions";
-import { correctPicks } from "../../../contexts/correct-picks-context";
+import { validatePick }
+  from "../../../../../utility functions/utility-functions";
+import { LevelStatesProvider }
+  from "../../../../../contexts/level-state-context";
 
 function CharacterMenu(
   {
@@ -12,7 +14,7 @@ function CharacterMenu(
   },
 )
 {
-  const { pickedCorrectly, addCorrect } = correctPicks();
+  const { pickedCorrectly, addCorrect } = LevelStatesProvider();
 
   const handleCorrect = (name) =>
   {

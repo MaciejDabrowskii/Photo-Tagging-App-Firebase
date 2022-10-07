@@ -1,11 +1,15 @@
 /* eslint-disable consistent-return */
 /* eslint-disable no-unused-expressions */
-import React, { useEffect } from "react";
+import React from "react";
 import GoogleButton from "react-google-button";
 import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
+import { isEmpty } from "lodash";
 import { firebaseMethods } from "../../contexts/firebase-context";
 import { UserMethods } from "../../contexts/user-context";
 import anonIcon from "../../assets/anonIcon.png";
+import avatarPlaceholder from "../../assets/avatar-placeholder.png";
 
 function LogButtons()
 {
@@ -40,20 +44,35 @@ function LogButtons()
   {
     await handleSignInGoogle()
       .catch((error) => console.log(error));
+    if (!isEmpty(user)) return navigate("/select-level");
   };
-
-  useEffect(() =>
-  {
-    if (user)
-    {
-      return navigate("/game");
-    }
-  }, [user]);
 
   return (
     <div className="buttons-container">
-      {user
-        ? (<button type="button" onClick={handleLogOut}>Logout</button>)
+      {!isEmpty(user)
+        ? (
+          <>
+            <div className="user-container">
+              <img
+                src={user.photoURL ? user.photoURL : avatarPlaceholder}
+                alt={user.displayName}
+                className="suer-image"
+              />
+              <p
+                className="user-name"
+              >
+                {user.displayName}
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={handleLogOut}
+            >
+              <FontAwesomeIcon icon={faRightFromBracket} />
+              <p>Logout</p>
+            </button>
+          </>
+        )
         : (
           <>
             <GoogleButton

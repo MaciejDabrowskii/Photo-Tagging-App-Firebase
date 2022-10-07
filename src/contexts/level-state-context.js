@@ -3,16 +3,18 @@
 /* eslint-disable max-len */
 import React, { useState, useContext } from "react";
 
-const CorrectPicksContext = React.createContext();
+const LevelStateContext = React.createContext();
 
-export function correctPicks()
+export function levelStatesMethods()
 {
-  return useContext(CorrectPicksContext);
+  return useContext(LevelStateContext);
 }
 
-export function PicksProvider({ children })
+export function LevelStatesProvider({ children })
 {
   const [pickedCorrectly, setPickedCorrectly] = useState([]);
+
+  const [selectedLevel, setSelectedLevel] = useState("");
 
   const addCorrect = (name, coordinates) =>
   {
@@ -22,11 +24,16 @@ export function PicksProvider({ children })
     }
   };
 
-  const methods = { pickedCorrectly, addCorrect };
+  const methods = {
+    pickedCorrectly,
+    addCorrect,
+    selectedLevel,
+    setSelectedLevel,
+  };
 
   return (
-    <CorrectPicksContext.Provider value={methods}>
+    <LevelStateContext.Provider value={methods}>
       {children}
-    </CorrectPicksContext.Provider>
+    </LevelStateContext.Provider>
   );
 }

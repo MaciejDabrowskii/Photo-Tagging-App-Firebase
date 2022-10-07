@@ -2,13 +2,13 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable react/jsx-no-comment-textnodes */
 import React, { useRef, useState, useEffect } from "react";
-import imageZZZ from "../../assets/random.jpg";
+import imageZZZ from "../../../../assets/popculture.jpg";
 import CharacterMenu from "./components/character-menu";
 import Marker from "./components/marker";
-import "./image-section.css";
-import { correctPicks } from "../../contexts/correct-picks-context";
+import "./render-image.css";
+import { levelStatesMethods } from "../../../../contexts/level-state-context";
 
-function ImageSection()
+function RenderImage()
 {
   const [selectorVisible, setSelectorVisible] = useState(false);
 
@@ -18,7 +18,7 @@ function ImageSection()
 
   const gameImage = useRef();
 
-  const { pickedCorrectly } = correctPicks();
+  const { pickedCorrectly } = levelStatesMethods();
 
   const characters = [
     {
@@ -89,7 +89,7 @@ function ImageSection()
   }, []);
 
   return (
-    <div className="game-container" style={{ position: "relative" }}>
+    <div className="game-image-container" style={{ position: "relative" }}>
       <img
         src={imageZZZ}
         ref={gameImage}
@@ -117,4 +117,4 @@ function ImageSection()
   );
 }
 
-export default ImageSection;
+export default RenderImage;
