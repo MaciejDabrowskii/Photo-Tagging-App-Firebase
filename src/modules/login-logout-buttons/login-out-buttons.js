@@ -10,6 +10,7 @@ import { firebaseMethods } from "../../contexts/firebase-context";
 import { UserMethods } from "../../contexts/user-context";
 import anonIcon from "../../assets/anonIcon.png";
 import avatarPlaceholder from "../../assets/avatar-placeholder.png";
+import "./login-out-buttons.css";
 
 function LogButtons()
 {
@@ -18,6 +19,11 @@ function LogButtons()
   const { user, setUser } = UserMethods();
 
   const navigate = useNavigate();
+
+  const AnonUser = {
+    displayName: "Anonymous",
+    photoURL: anonIcon,
+  };
 
   const handleSignInGoogle = async () =>
   {
@@ -56,7 +62,7 @@ function LogButtons()
               <img
                 src={user.photoURL ? user.photoURL : avatarPlaceholder}
                 alt={user.displayName}
-                className="suer-image"
+                className="user-image"
               />
               <p
                 className="user-name"
@@ -66,9 +72,13 @@ function LogButtons()
             </div>
             <button
               type="button"
+              className="user-logout-btn"
               onClick={handleLogOut}
             >
-              <FontAwesomeIcon icon={faRightFromBracket} />
+              <FontAwesomeIcon
+                className="user-logout-btn-icon"
+                icon={faRightFromBracket}
+              />
               <p>Logout</p>
             </button>
           </>
@@ -82,9 +92,14 @@ function LogButtons()
             <button
               className="btn-login-anon"
               type="button"
+              onClick={() => setUser(AnonUser)}
             >
-              <img src={anonIcon} alt="Anonymous" />
-              <p>Anonymous</p>
+              <img
+                src={anonIcon}
+                alt="Anonymous"
+                className="btn-login-anon-img"
+              />
+              <p className="btn-login-anon-text">Anonymous</p>
             </button>
           </>
         )}
