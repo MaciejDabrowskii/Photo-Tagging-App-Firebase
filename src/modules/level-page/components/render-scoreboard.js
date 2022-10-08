@@ -15,8 +15,6 @@ function RenderHighScore()
     {
       snapshot.docs.map((doc) =>
       {
-        console.log(doc.data());
-
         if (doc.id === selectedLevel)
         {
           setHighScoreData(doc.data().highScore.sort((a, b) => a.score - b.score));

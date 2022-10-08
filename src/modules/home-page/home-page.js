@@ -4,6 +4,7 @@ import { isEmpty } from "lodash";
 import { useNavigate } from "react-router-dom";
 import LogButtons from "../login-logout-buttons/login-out-buttons";
 import { UserMethods } from "../../contexts/user-context";
+import "./home-page.css";
 
 function HomePage()
 {
@@ -21,7 +22,12 @@ function HomePage()
 
   return (
     <div className="home-page">
-      <LogButtons />
+      <h1 className="home-page-logo">Where&apos;s Walldo ?</h1>
+      <div className="home-page-login-wrapper">
+        <h3 className="home-page-login-header">Log in:</h3>
+        <LogButtons />
+      </div>
+
     </div>
   );
 }

@@ -7,6 +7,7 @@ import RenderHighScore from "./components/render-scoreboard";
 import RenderImage from "./components/render-image/render-image";
 import PickIndicator from "../pick-indicator/pick-indicator";
 import RenderTimer from "./components/render-timer";
+import Navbar from "../navbar/navbar";
 
 function RenderLevel()
 {
@@ -39,6 +40,7 @@ function RenderLevel()
 
   return (
     <div>
+      <Navbar showReturnButton />
       {
         levelData
           ? (

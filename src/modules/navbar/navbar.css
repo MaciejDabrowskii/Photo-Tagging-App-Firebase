@@ -1,0 +1,36 @@
+.navbar {
+    display: flex;
+    background-color: var(--green);
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.navbar-logo-container {
+    display: flex;
+    /* align-items: center; */
+    font-family: 'Lobster', cursive;
+}
+
+.navbar-logo-text {
+    color: white;
+    font-size: 58px;
+}
+
+.buttons-container {
+    margin-left: auto;
+}
+
+.navbar-return-container{
+    text-decoration: none;
+}
+
+.navbar-return-icon {
+    font-size: 50px;
+    margin-right: 24px;
+    cursor: pointer;
+}
+
+.fa-circle-left>path{
+    color: white;
+}

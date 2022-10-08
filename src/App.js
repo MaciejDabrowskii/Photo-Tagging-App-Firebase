@@ -29,7 +29,7 @@ function App()
               {/* <Test /> */}
               <Routes>
                 <Route path="/" element={(<HomePage />)} />
-                <Route path="/select-level" element={(<LevelSelect />)} />
+                <Route path="/select-level" element={(<Protect><LevelSelect /></Protect>)} />
                 <Route
                   path="/game"
                   element={(

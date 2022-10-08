@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { firebaseMethods } from "../../contexts/firebase-context";
 import { levelStatesMethods } from "../../contexts/level-state-context";
+import Navbar from "../navbar/navbar";
 
 function LevelSelect()
 {
@@ -25,6 +26,7 @@ function LevelSelect()
   return (
 
     <div className="level-select-container">
+      <Navbar showReturnButton={false} />
       {data
         ? (
           <>
