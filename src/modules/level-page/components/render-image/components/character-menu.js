@@ -3,7 +3,7 @@
 import React from "react";
 import { validatePick }
   from "../../../../../utility functions/utility-functions";
-import { LevelStatesProvider }
+import { levelStatesMethods }
   from "../../../../../contexts/level-state-context";
 
 function CharacterMenu(
@@ -14,7 +14,7 @@ function CharacterMenu(
   },
 )
 {
-  const { pickedCorrectly, addCorrect } = LevelStatesProvider();
+  const { pickedCorrectly, addCorrect } = levelStatesMethods();
 
   const handleCorrect = (name) =>
   {

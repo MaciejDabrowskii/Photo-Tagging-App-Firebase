@@ -4,7 +4,7 @@ import React, { useState, useContext } from "react";
 
 const Timer = React.createContext();
 
-export function getTimer()
+export function getTimerMethods()
 {
   return useContext(Timer);
 }

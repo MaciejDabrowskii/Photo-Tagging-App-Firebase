@@ -1,13 +1,13 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClock } from "@fortawesome/free-solid-svg-icons";
-import { getTimer } from "../../../contexts/timer-context";
+import { getTimerMethods } from "../../../contexts/timer-context";
 
 function RenderTimer()
 {
   const {
-    timer, startTimer, stopTimer, resetTimer,
-  } = getTimer();
+    timer, startTimer, stopTimer,
+  } = getTimerMethods();
 
   return (
     <div className="timer-container">

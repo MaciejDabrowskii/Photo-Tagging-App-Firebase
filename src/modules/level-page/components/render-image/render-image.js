@@ -2,14 +2,15 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable react/jsx-no-comment-textnodes */
 import React, { useRef, useState, useEffect } from "react";
-import imageZZZ from "../../../../assets/popculture.jpg";
 import CharacterMenu from "./components/character-menu";
 import Marker from "./components/marker";
 import "./render-image.css";
 import { levelStatesMethods } from "../../../../contexts/level-state-context";
 
-function RenderImage()
+function RenderImage({ levelData, setIsPageLoaded })
 {
+  const { characters, imageURL } = levelData;
+
   const [selectorVisible, setSelectorVisible] = useState(false);
 
   const [imageSize, setImageSize] = useState({});
@@ -19,33 +20,6 @@ function RenderImage()
   const gameImage = useRef();
 
   const { pickedCorrectly } = levelStatesMethods();
-
-  const characters = [
-    {
-      name: "Stewie",
-      coordinates:
-      {
-        x: { start: 1210, end: 1280 },
-        y: { start: 628, end: 708 },
-      },
-    },
-    {
-      name: "Judge Dredd",
-      coordinates:
-        {
-          x: { start: 852, end: 923 },
-          y: { start: 1068, end: 1250 },
-        },
-    },
-    {
-      name: "Antman",
-      coordinates:
-        {
-          x: { start: 490, end: 555 },
-          y: { start: 1236, end: 1308 },
-        },
-    },
-  ];
 
   const getCoordinates = (e) =>
   {
@@ -80,10 +54,12 @@ function RenderImage()
   {
     const image = gameImage.current;
 
+    window.addEventListener("load", setIsPageLoaded(true));
     image.addEventListener("click", getCoordinates);
 
     return () =>
     {
+      window.addEventListener("load", setIsPageLoaded(true));
       image.removeEventListener("click", getCoordinates);
     };
   }, []);
@@ -91,7 +67,7 @@ function RenderImage()
   return (
     <div className="game-image-container" style={{ position: "relative" }}>
       <img
-        src={imageZZZ}
+        src={imageURL}
         ref={gameImage}
         className="game-image"
         alt="bloated with many popculture characters"

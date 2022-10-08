@@ -21,7 +21,7 @@ import {
 import { UserMethods } from "./user-context";
 
 import {
-  app, auth, storeage, database,
+  app, auth, database,
 } from "../firebase/firebase-init";
 
 const FirebaseContext = React.createContext();
@@ -64,12 +64,12 @@ export function FirebaseProvider({ children })
     return data;
   };
 
-  const fetchSelectedGameData = async (
+  const fetchSelectedLevelData = async (
     collectionName,
-    selectedGame,
+    selectedLevel,
   ) =>
   {
-    const docRef = doc(database, collectionName, selectedGame);
+    const docRef = doc(database, collectionName, selectedLevel);
 
     const docSnap = await getDoc(docRef);
 
@@ -91,7 +91,7 @@ export function FirebaseProvider({ children })
     LogOutGoogle,
     fetchCollectionData,
     addData,
-    fetchSelectedGameData,
+    fetchSelectedLevelData,
   };
 
   return (

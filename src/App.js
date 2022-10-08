@@ -15,6 +15,7 @@ import { UserProvider } from "./contexts/user-context";
 import Protect from "./modules/protected/protect";
 import Test from "./test";
 import LevelSelect from "./modules/level-select-page/level-select-page";
+import RenderLevel from "./modules/level-page/level-page";
 
 function App()
 {
@@ -23,9 +24,9 @@ function App()
       <UserProvider>
         <FirebaseProvider>
           <BrowserRouter>
-            {/* TODO delete this */}
-            {/* <Test /> */}
             <LevelStatesProvider>
+              {/* TODO delete this */}
+              {/* <Test /> */}
               <Routes>
                 <Route path="/" element={(<HomePage />)} />
                 <Route path="/select-level" element={(<LevelSelect />)} />
@@ -34,9 +35,7 @@ function App()
                   element={(
                     <Protect>
                       <TimerProvider>
-                        <RenderImage />
-                        <PickIndicator />
-                        <RenderTimer />
+                        <RenderLevel />
                       </TimerProvider>
                     </Protect>
                 )}
