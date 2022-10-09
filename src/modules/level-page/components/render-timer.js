@@ -11,8 +11,6 @@ function RenderTimer()
 
   return (
     <div className="timer-container">
-      <button type="button" onClick={startTimer}>Start</button>
-      <button type="button" onClick={stopTimer}>Stop</button>
       <FontAwesomeIcon className="timer-icon" icon={faClock} />
       <h3 className="timer-value">
         {`${(timer / 60)

@@ -1,0 +1,71 @@
+.level-page>.navbar {
+    max-height: 3.5rem;
+}
+
+.level-page-container {
+    display: flex;
+}
+
+.sidebar-left{
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.sidebar-left-header {
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    color: var(--green);
+    font-weight: 800;
+}
+
+.high-score-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.score-container {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 5px solid var(--green);
+    margin-top: 1rem;
+    font-family: 'Raleway', sans-serif;
+    padding-bottom: .75rem;
+}
+
+.score-user{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    margin-bottom: .3rem;
+}
+
+.score-image{
+    width: 2rem;
+    height: 2rem;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+.score-name {
+    font-family: 'Roboto', sans-serif;
+}
+
+.score-wrapper {
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.score-value {
+    text-align: center;
+    color: var(--green);
+    font-size: 1rem;
+    font-weight: 600;
+    padding: .3rem 0;
+    margin-left: .5rem;
+}
+
+.game-image {
+    height: 85vh;
+}

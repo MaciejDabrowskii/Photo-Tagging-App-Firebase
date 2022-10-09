@@ -30,7 +30,7 @@ function RenderHighScore()
 
   return (
     <div className="sidebar-left">
-      <h2 className="sidebar-header">TOP 20</h2>
+      <h2 className="sidebar-left-header">TOP 20</h2>
       <div className="high-score-container">
         {highscoreData
           ? (
@@ -40,11 +40,18 @@ function RenderHighScore()
               {
                 return (
                   <div className="score-container" key={player.score}>
-                    <div className="score-name">
-                      <img src={player.avatar} alt={player.name} />
-                      <p>{player.name}</p>
+                    <div className="score-user">
+                      <img
+                        src={player.avatar}
+                        alt={player.name}
+                        className="score-image"
+                      />
+                      <p className="score-name">{player.name}</p>
                     </div>
-                    <p>{player.score}</p>
+                    <div className="score-wrapper">
+                      SCORE:
+                      <span className="score-value">{player.score}</span>
+                    </div>
                   </div>
                 );
               }

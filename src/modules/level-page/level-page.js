@@ -8,6 +8,7 @@ import RenderImage from "./components/render-image/render-image";
 import PickIndicator from "../pick-indicator/pick-indicator";
 import RenderTimer from "./components/render-timer";
 import Navbar from "../navbar/navbar";
+import "./level-page.css";
 
 function RenderLevel()
 {
@@ -39,12 +40,12 @@ function RenderLevel()
   }, [isPageLoaded]);
 
   return (
-    <div>
+    <div className="level-page">
       <Navbar showReturnButton />
       {
         levelData
           ? (
-            <>
+            <div className="level-page-container">
               <RenderHighScore />
               <RenderImage
                 levelData={levelData}
@@ -54,7 +55,7 @@ function RenderLevel()
                 <PickIndicator levelData={levelData} />
                 <RenderTimer />
               </div>
-            </>
+            </div>
           )
           : <h1>Loading...</h1>
       }

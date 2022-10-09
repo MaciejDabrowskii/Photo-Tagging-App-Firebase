@@ -2,19 +2,18 @@
     display: flex;
     background-color: var(--green);
     align-items: center;
-    padding: 20px;
+    padding: .75rem;
     margin-bottom: 20px;
 }
 
 .navbar-logo-container {
     display: flex;
-    /* align-items: center; */
     font-family: 'Lobster', cursive;
 }
 
 .navbar-logo-text {
     color: white;
-    font-size: 58px;
+    font-size: 2rem;
 }
 
 .buttons-container {
@@ -33,4 +32,18 @@
 
 .fa-circle-left>path{
     color: white;
+}
+
+.navbar>.buttons-container {
+    height: 3rem;
+}
+
+
+@media screen and (max-width: 485px) {
+    .navbar{
+        flex-direction: column;
+    }
+    .navbar-logo-text {
+        font-size: 40px;
+    }
 }

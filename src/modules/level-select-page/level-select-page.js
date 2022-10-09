@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import { firebaseMethods } from "../../contexts/firebase-context";
 import { levelStatesMethods } from "../../contexts/level-state-context";
 import Navbar from "../navbar/navbar";
+import "./level-select-page.css";
 
 function LevelSelect()
 {
@@ -24,12 +27,11 @@ function LevelSelect()
   }, []);
 
   return (
-
-    <div className="level-select-container">
+    <>
       <Navbar showReturnButton={false} />
       {data
         ? (
-          <>
+          <div className="level-select-container">
             {data.map((document) => (
               <Link
                 onClick={() => setSelectedLevel(document.name)}
@@ -37,14 +39,25 @@ function LevelSelect()
                 key={document.name}
                 className="level-container"
               >
-                <img src={document.imageURL} alt={document.name} />
-                <h3 className="level-name">{document.name}</h3>
+                <img
+                  src={document.imageURL}
+                  alt={document.name}
+                  className="level-image"
+                />
+                <p className="level-name">{document.name}</p>
               </Link>
             ))}
-          </>
+          </div>
         )
-        : <h1>Loading...</h1>}
-    </div>
+        : (
+          <div className="level-select-spinner-container">
+            <FontAwesomeIcon
+              icon={faSpinner}
+              className="fa-spin-pulse spinner"
+            />
+          </div>
+        )}
+    </>
   );
 }
 

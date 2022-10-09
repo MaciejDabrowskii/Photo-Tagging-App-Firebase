@@ -25,31 +25,30 @@
 }
 
 .btn-login-anon-text {
-margin: 0 20px;
+    margin: 0 20px;
 }
 
 .user-container{
     display: flex;
     align-items: center;
     border-radius: 1px;
-    padding: 5px;
-    font-size: 16px;
+    padding: .5rem;
     line-height: 48px;
     gap: 15px;
     background-color: white;
-    border-radius: 3px;
+    border-radius: 10px;
 }
 
 .user-image {
-    width: 48px;
-    height: 48px;
+    width: 2rem;
+    height: 2rem;
     background-color: white;
     border-radius: 50%;
 }
 
 .user-name {
     margin-right: 20px;
-    font-size: 20px;
+    font-size: 1rem;
     font-weight: 600;
 }
 
@@ -58,21 +57,37 @@ margin: 0 20px;
     align-items: center;
     justify-content: center;
     gap: 10px;
-    padding: 0 10px;
-    font-size: 16px;
+    padding: 6px 26px;
     line-height: 48px;
     cursor: pointer;
     background-color: white;
-    border-radius: 2px;
+    border-radius: 10px;
     border: none
 }
 
 .user-logout-btn-icon {
-    font-size: 30px;
+    font-size: 1rem;
+
+}
+
+.user-logout-btn-icon>path {
+    color: var(--green);
 }
 
 .user-logout-btn > p {
     font-family: Roboto, arial, sans-serif;
+    font-size: 1rem;
     font-weight: 600;
+}
+
+@media screen and (max-width: 948px) {
+    .user-name{
+        display: none;
+    }
+
+    .user-logout-btn > p {
+        display: none;
+    }
+
 }
 
