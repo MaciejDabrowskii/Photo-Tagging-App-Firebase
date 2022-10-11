@@ -24,11 +24,17 @@ export function LevelStatesProvider({ children })
     }
   };
 
+  const resetPicks = () =>
+  {
+    setPickedCorrectly([]);
+  };
+
   const methods = {
     pickedCorrectly,
     addCorrect,
     selectedLevel,
     setSelectedLevel,
+    resetPicks,
   };
 
   return (

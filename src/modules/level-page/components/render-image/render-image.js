@@ -4,7 +4,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import CharacterMenu from "./components/character-menu";
 import Marker from "./components/marker";
-import "./render-image.css";
 import { levelStatesMethods } from "../../../../contexts/level-state-context";
 
 function RenderImage({ levelData, setIsPageLoaded })
@@ -15,11 +14,13 @@ function RenderImage({ levelData, setIsPageLoaded })
 
   const [imageSize, setImageSize] = useState({});
 
-  const [selectedCoords, setCselectedCoords] = useState({});
+  const [selectedCoords, setSelectedCoords] = useState({});
 
   const gameImage = useRef();
 
-  const { pickedCorrectly } = levelStatesMethods();
+  const { pickedCorrectly, resetPicks } = levelStatesMethods();
+
+  useEffect(() => () => resetPicks(), []);
 
   const getCoordinates = (e) =>
   {
@@ -45,9 +46,15 @@ function RenderImage({ levelData, setIsPageLoaded })
 
     const py = Math.round((y / ch) * ih);
 
+    const ratio = cw / iw;
+
+    console.log(ratio);
     setImageSize({ width: cw, height: ch });
 
-    return setCselectedCoords({ x: px, y: py });
+    return setSelectedCoords({
+      orginalSize: { x: px, y: py },
+      clientSize: { x: px * ratio, y: py * ratio },
+    });
   };
 
   useEffect(() =>
@@ -64,23 +71,35 @@ function RenderImage({ levelData, setIsPageLoaded })
     };
   }, []);
 
+  // useEffect(() =>
+  // {
+  //   window.addEventListener("resize", getCoordinates);
+
+  //   return () =>
+  //   {
+  //     window.removeEventListener("resize", getCoordinates);
+  //   };
+  // }, []);
+
   return (
-    <div className="game-image-container" style={{ position: "relative" }}>
-      <img
-        src={imageURL}
-        ref={gameImage}
-        className="game-image"
-        alt="bloated with many popculture characters"
-        onClick={() => setSelectorVisible((prevState) => !prevState)}
-      />
-      {selectorVisible && (
+    <div className="game-image-container">
+      <div className="game-image-wrapper" style={{ position: "relative" }}>
+        <img
+          src={imageURL}
+          ref={gameImage}
+          className="game-image"
+          alt="bloated with many popculture characters"
+          onClick={() => setSelectorVisible((prevState) => !prevState)}
+        />
+        {selectorVisible && (
         <CharacterMenu
           characters={characters}
           selectedCoords={selectedCoords}
           setSelectorVisible={setSelectorVisible}
+          imageSize={imageSize}
         />
-      )}
-      {
+        )}
+        {
         pickedCorrectly.map((pick) => (
           <Marker
             key={pick.name}
@@ -89,6 +108,7 @@ function RenderImage({ levelData, setIsPageLoaded })
           />
         ))
       }
+      </div>
     </div>
   );
 }

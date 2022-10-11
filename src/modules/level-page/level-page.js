@@ -5,7 +5,7 @@ import { firebaseMethods } from "../../contexts/firebase-context";
 import { getTimerMethods } from "../../contexts/timer-context";
 import RenderHighScore from "./components/render-scoreboard";
 import RenderImage from "./components/render-image/render-image";
-import PickIndicator from "../pick-indicator/pick-indicator";
+import PickIndicator from "./components/pick-indicator/pick-indicator";
 import RenderTimer from "./components/render-timer";
 import Navbar from "../navbar/navbar";
 import "./level-page.css";
@@ -34,10 +34,10 @@ function RenderLevel()
     getData();
   }, []);
 
-  useEffect(() =>
-  {
-    if (isPageLoaded) return startTimer();
-  }, [isPageLoaded]);
+  // useEffect(() =>
+  // {
+  //   if (isPageLoaded) return startTimer();
+  // }, [isPageLoaded]);
 
   return (
     <div className="level-page">
@@ -51,7 +51,7 @@ function RenderLevel()
                 levelData={levelData}
                 setIsPageLoaded={setIsPageLoaded}
               />
-              <div className="sidebar">
+              <div className="sidebar-right">
                 <PickIndicator levelData={levelData} />
                 <RenderTimer />
               </div>

@@ -1,8 +1,9 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
-import { isGuessed } from "../../../utility functions/utility-functions";
-import { levelStatesMethods } from "../../../contexts/level-state-context";
+import { isGuessed } from "../../../../../utility functions/utility-functions";
+import { levelStatesMethods }
+  from "../../../../../contexts/level-state-context";
 
 function CharacterIndicator({ character })
 {

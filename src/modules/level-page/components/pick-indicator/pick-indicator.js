@@ -1,6 +1,5 @@
 import React from "react";
 import CharacterIndicator from "./components/render-character-indicator";
-import "./pick-indicator.css";
 
 function PickIndicator({ levelData })
 {

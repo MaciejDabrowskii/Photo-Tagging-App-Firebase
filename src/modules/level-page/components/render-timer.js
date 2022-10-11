@@ -11,8 +11,8 @@ function RenderTimer()
 
   return (
     <div className="timer-container">
-      <FontAwesomeIcon className="timer-icon" icon={faClock} />
-      <h3 className="timer-value">
+      <FontAwesomeIcon className="timer-icon fa-shake" icon={faClock} />
+      <p className="timer-value">
         {`${(timer / 60)
           .toString()
           .split(".")[0]} m`}
@@ -20,7 +20,7 @@ function RenderTimer()
         {`${(timer % 60)
           .toString()
           .match(/^-?\d+(?:\.\d{0,1})?/)[0]} s`}
-      </h3>
+      </p>
     </div>
   );
 }

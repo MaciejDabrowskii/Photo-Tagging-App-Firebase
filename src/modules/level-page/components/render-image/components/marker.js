@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import React, { useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLocationPin } from "@fortawesome/free-solid-svg-icons";
+import { faLocationPin, faMapPin } from "@fortawesome/free-solid-svg-icons";
 
 function Marker({ pick, imageSize })
 {
@@ -47,7 +47,8 @@ function Marker({ pick, imageSize })
   const textStyleHover = () => (
     calculateOverflow()
       ? { left: 0, transition: ".5s" }
-      : { right: 0, transition: ".5s" });
+      : { right: 0, transition: ".5s" }
+  );
 
   const textStyle = () => (
     calculateOverflow()
@@ -63,19 +64,13 @@ function Marker({ pick, imageSize })
         top: `${coordinates.y - pinDivDimension.height}px`,
       }}
     >
-      <div className="marker-wrapper">
-        <div ref={markerPin} style={{ display: "inline-block" }}>
-          <FontAwesomeIcon
-            onMouseEnter={() => setHover(true)}
-            onMouseLeave={() => setHover(false)}
-            icon={faLocationPin}
-            className="marker-pin-outer"
-          />
-          <FontAwesomeIcon
-            icon={faLocationPin}
-            className="marker-pin-inner"
-          />
-        </div>
+      <div ref={markerPin}>
+        <FontAwesomeIcon
+          onMouseEnter={() => setHover(true)}
+          onMouseLeave={() => setHover(false)}
+          icon={faMapPin}
+          className="marker-pin fa-bounce"
+        />
         <div
           className="text-div-wrapper"
           style={calculateOverflow() ? {

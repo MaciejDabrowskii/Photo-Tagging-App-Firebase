@@ -1,4 +1,4 @@
-.level-page>.navbar {
+.level-page > .navbar {
     max-height: 3.5rem;
 }
 
@@ -6,11 +6,11 @@
     display: flex;
 }
 
-.sidebar-left{
-    width: 15%;
+.sidebar-left {
     display: flex;
     flex-direction: column;
     padding: 1rem;
+    min-width: 17rem;
 }
 
 .sidebar-left-header {
@@ -66,6 +66,168 @@
     margin-left: .5rem;
 }
 
+.sidebar-right {
+    min-width: 17rem;
+}
+
+.indicator-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.indicator-container:last-child .character-indicator-container  {
+    border-bottom: 0px;
+}
+
+.character-indicator-container {
+    padding: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    transition: all 0.5s ease-in-out;
+    border-bottom: 3px solid var(--green);
+    border-top-left-radius: 20px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+
+.character-indicator-container:last-child {
+    border: none;
+    margin-bottom: 10px;
+}
+
+.character-indicator-container.correct {
+    background-color: rgba(94, 206, 123, 1);
+    border: none;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+
+}
+
+.character-indicator-container > p {
+    color: var(--green);
+}
+
+.character-indicator-container.correct > p {
+    color: white;
+}
+
+.character-indicator > p {
+    display: inline-block;
+}
+
+.character-indicator-checkmark {
+    transition: all 0.5s ease-in-out;
+    margin-right: 20px;
+    font-size: 2rem;
+    padding: 10px;
+}
+
+.character-indicator-checkmark > path {
+    color: white;
+}
+
+.timer-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 1rem;
+    gap: .5rem;
+    width: 90%;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-color: var(--green);
+    font-family: 'Work Sans', sans-serif;
+}
+
+.timer-icon {
+    font-size: 2rem;
+}
+
+.timer-icon > path {
+    color: white;
+}
+
+.timer-value {
+    font-size: 2rem;
+    color: white;
+    font-weight: 700;
+}
+
+.game-image-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
 .game-image {
     height: 85vh;
+}
+
+
+.text-div-wrapper {
+    position: absolute;
+}
+
+.text-wrapper{
+    position: relative;
+    overflow: hidden;
+}
+
+.marker-container {
+    position: absolute;
+}
+
+.marker-text {
+    position: absolute;
+    font-family: 'Raleway', sans-serif;
+    padding: 6px;
+    margin: 0;
+    background-color: var(--green);
+    white-space: nowrap;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: bolder;
+    color: white;
+}
+
+.marker-pin {
+    font-size: 2rem;
+    bottom: 0;
+
+}
+.marker-pin > path {
+    color: var(--green);
+}
+
+.character-selector-container {
+    position: absolute;
+    font-family: 'Raleway', sans-serif;
+    background-color: white;
+    padding: .3rem;
+}
+
+.character-container {
+    padding: .2rem .5rem;
+    transition: all .3s ease-in-out;
+}
+
+.character-container > button {
+    font-size: 1rem;
+    white-space: nowrap;
+    border: none;
+    background-color: inherit;
+    color: inherit;
+    cursor: pointer;
+
+}
+
+.character-container:hover {
+    background-color: var(--green);
+    color: white;
 }

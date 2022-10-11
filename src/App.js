@@ -8,7 +8,7 @@ import RenderImage from "./modules/level-page/components/render-image/render-ima
 import RenderTimer from "./modules/level-page/components/render-timer";
 import { LevelStatesProvider } from "./contexts/level-state-context";
 import { TimerProvider } from "./contexts/timer-context";
-import PickIndicator from "./modules/pick-indicator/pick-indicator";
+import PickIndicator from "./modules/level-page/components/pick-indicator/pick-indicator";
 import { FirebaseProvider } from "./contexts/firebase-context";
 import HomePage from "./modules/home-page/home-page";
 import { UserProvider } from "./contexts/user-context";

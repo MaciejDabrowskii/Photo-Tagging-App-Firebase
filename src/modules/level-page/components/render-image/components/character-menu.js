@@ -18,7 +18,7 @@ function CharacterMenu(
 
   const handleCorrect = (name) =>
   {
-    addCorrect(name, selectedCoords);
+    addCorrect(name, selectedCoords.clientSize);
     setSelectorVisible(false);
   };
 
@@ -31,9 +31,8 @@ function CharacterMenu(
     <div
       className="character-selector-container"
       style={{
-        position: "absolute",
-        left: `${selectedCoords.x}px`,
-        top: `${selectedCoords.y}px`,
+        left: `${selectedCoords.clientSize.x}px`,
+        top: `${selectedCoords.clientSize.y}px`,
       }}
     >
       {characters.map(({ name }) =>
@@ -48,7 +47,7 @@ function CharacterMenu(
               <button
                 type="button"
                 onClick={() => (
-                  validatePick(selectedCoords, name, characters)
+                  validatePick(selectedCoords.orginalSize, name, characters)
                     ? handleCorrect(name)
                     : handleIncorrect(name)
                 )}
