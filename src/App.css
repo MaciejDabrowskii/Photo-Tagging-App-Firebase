@@ -10,6 +10,8 @@
 :root {
   --green: rgba(94, 206, 123, 1);
   --overlay: rgba(57, 55, 72, 0.22);
+  --pink: rgb(206, 95, 176);
+  --violet: rgb(125, 95, 206);
   --transparentBlack: rgba(0, 0, 0, 0.73);
   --dark: rgba(29, 31, 34, 1);
   font-size: 8px;

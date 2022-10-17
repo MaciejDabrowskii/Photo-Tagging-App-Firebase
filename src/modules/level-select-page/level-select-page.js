@@ -39,11 +39,13 @@ function LevelSelect()
                 key={document.name}
                 className="level-container"
               >
-                <img
-                  src={document.imageURL}
-                  alt={document.name}
-                  className="level-image"
-                />
+                <div className="level-image-wrapper">
+                  <img
+                    src={document.imageURL}
+                    alt={document.name}
+                    className="level-image"
+                  />
+                </div>
                 <p className="level-name">{document.name}</p>
               </Link>
             ))}

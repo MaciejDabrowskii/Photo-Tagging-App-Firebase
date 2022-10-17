@@ -1,7 +1,3 @@
-.level-page > .navbar {
-    max-height: 3.5rem;
-}
-
 .level-page-container {
     display: flex;
 }
@@ -9,11 +5,16 @@
 .sidebar-left {
     display: flex;
     flex-direction: column;
-    padding: 1rem;
-    min-width: 30rem;
+    padding: 1rem 0;
+    min-width: max-content;
+    margin-right: auto;
+    border-right: 1px solid var(--green);
 }
 
 .sidebar-left-header {
+    font-size: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--green);
     text-align: center;
     font-family: 'Raleway', sans-serif;
     color: var(--green);
@@ -28,10 +29,10 @@
 .score-container {
     display: flex;
     flex-direction: column;
-    border-bottom: 5px solid var(--green);
+    border-bottom: 1px solid var(--green);
     margin-top: 1rem;
     font-family: 'Raleway', sans-serif;
-    padding-bottom: .75rem;
+    padding: 1rem;
 }
 
 .score-user{
@@ -42,25 +43,29 @@
 }
 
 .score-image{
-    width: 2rem;
-    height: 2rem;
+    width: 5rem ;
+    height: 5rem;
     object-fit: contain;
     border-radius: 50%;
 }
 
 .score-name {
     font-family: 'Roboto', sans-serif;
+    margin-bottom: .5rem;
+    font-size: 2rem;
+    color: var(--pink);
 }
 
 .score-wrapper {
     font-weight: 500;
-    font-size: 1rem;
+    font-size: 1.5rem;
+    color: var(--violet);
 }
 
 .score-value {
     text-align: center;
     color: var(--green);
-    font-size: 1rem;
+    font-size: 2rem;
     font-weight: 600;
     padding: .3rem 0;
     margin-left: .5rem;
@@ -71,16 +76,20 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-left: auto;
+    border-left: 1px solid var(--green);
 }
 
 .indicator-container {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    width: 100%;
+    margin:1rem 0 1.2rem 1rem;
 }
 
 .indicator-container:last-child .character-indicator-container  {
-    border-bottom: 0px;
+    border-bottom: unset;
 }
 
 .character-indicator-container {
@@ -90,16 +99,11 @@
     align-items: center;
     background-color: white;
     transition: background-color 0.5s ease-in-out;
-    border-bottom: 3px solid var(--green);
+    border-bottom: 1px solid var(--green);
     border-top-left-radius: 20px;
     font-family: 'Raleway', sans-serif;
     font-weight: 700;
     font-size: 2rem;
-}
-
-.character-indicator-container:last-child {
-    border: none;
-    margin-bottom: 10px;
 }
 
 .character-indicator-container.correct {
@@ -111,7 +115,7 @@
 }
 
 .character-indicator-container > p {
-    color: var(--green);
+    color: var(--violet);
 }
 
 .character-indicator-container.correct > p {
@@ -143,7 +147,7 @@
     width: 70%;
     aspect-ratio: 1/1;
     border-radius: 50%;
-    background-color: var(--green);
+    background-color: var(--pink);
     font-family: 'Work Sans', sans-serif;
 }
 
@@ -163,13 +167,14 @@
 
 .game-image-container{
     display: flex;
-    align-items: center;
     justify-content: center;
     width: 100%;
+    height: 100%;
 }
 
 .game-image {
-    height: 85vh;
+    width: auto;
+    height: 95vh;
 }
 
 
@@ -193,7 +198,7 @@
 .marker-text {
     position: absolute;
     font-family: 'Raleway', sans-serif;
-    padding: 6px;
+    padding: .75rem;
     margin: 0;
     background-color: var(--green);
     white-space: nowrap;
@@ -222,6 +227,7 @@
     padding: .2rem .5rem;
     transition: all .3s ease-in-out;
     border-bottom: 1px solid var(--green);
+    color: var(--pink);
 }
 
 .character-container:last-child {
@@ -229,13 +235,12 @@
 }
 
 .character-container > button {
-    font-size: 1rem;
+    font-size: 2rem;
     white-space: nowrap;
     border: none;
     background-color: inherit;
     color: inherit;
     cursor: pointer;
-
 }
 
 .character-container:hover {
@@ -243,8 +248,8 @@
     color: white;
 }
 
-@media screen and (max-width: 1430px) {
-    .sidebar-right, .sidebar-left {
+@media screen and (max-width: 1480px) {
+    .sidebar-right {
         min-width: 20rem;
     }
 
@@ -268,13 +273,9 @@
     .timer-value {
         font-size: 2rem;
     }
-
 }
 
-@media screen and (max-width: 920px) {
-    .sidebar-left {
-        display: none
-    }
+@media screen and (max-width: 1230px) {
 
     .timer-container{
         flex-direction: row;
@@ -284,6 +285,23 @@
         padding: 1rem;
         border-top-left-radius: 20px;
         border-bottom-left-radius: 20px;
+    }
 
+    .timer-icon {
+        display: none;
+    }
+
+    .sidebar-left {
+        min-width: min-content;
+    }
+
+    .sidebar-right {
+        min-width: 10rem;
+    }
+}
+
+@media screen and (max-width: 920px) {
+    .sidebar-left {
+        display: none
     }
 }

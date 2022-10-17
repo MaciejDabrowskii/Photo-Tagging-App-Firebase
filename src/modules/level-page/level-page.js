@@ -49,7 +49,7 @@ function RenderLevel()
 
   const showToastSucessMessage = () => toast.success("Correct!", {
     position: "top-center",
-    autoClose: 20000,
+    autoClose: 2000,
     hideProgressBar: true,
     closeOnClick: true,
     pauseOnHover: true,
@@ -65,7 +65,6 @@ function RenderLevel()
 
   return (
     <div className="level-page">
-      <Navbar showReturnButton />
       {
         levelData
           ? (
@@ -80,6 +79,7 @@ function RenderLevel()
               <div className="sidebar-right">
                 <PickIndicator levelData={levelData} />
                 <RenderTimer />
+                <Navbar showReturnButton />
               </div>
             </div>
           )

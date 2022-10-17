@@ -1,7 +1,7 @@
 .level-select-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(360px, 40rem));
-    grid-template-rows: repeat(auto-fit, minmax(360px, 40rem));
+    grid-template-columns: repeat(auto-fit, minmax(360px, 70rem));
+    grid-template-rows: repeat(auto-fit, minmax(260px, 70rem));
     margin-top: 5rem;
     gap: 5rem;
     justify-content: center;
@@ -17,17 +17,32 @@
     cursor: pointer;
 }
 
+.level-container {
+    color: inherit;
+}
+
 .level-container:hover {
     -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.level-image {
+.level-container:hover .level-image {
+    transform: scale(1.3);
+}
+
+.level-image-wrapper {
     width: 100%;
     height:80%;
+    overflow: hidden;
+}
+
+.level-image {
+    width: 100%;
+    height:100%;
     object-fit: cover;
     border-radius: 20px;
+    transition: transform .3s ease-in-out;
 }
 
 .level-name {
@@ -62,10 +77,11 @@
 }
 
 @media screen and (max-width: 485px) {
-    .level-select-container {
-        grid-template-rows: repeat(auto-fit, 20rem);
-    }
     .level-name {
         font-size: 1.5rem;
+    }
+
+    .level-select-container {
+        grid-template-rows: repeat(auto-fit, minmax(260px, 40rem));
     }
 }

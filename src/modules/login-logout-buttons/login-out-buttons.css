@@ -1,8 +1,8 @@
 .buttons-container {
     display: flex;
     font-family: Roboto, arial, sans-serif;
-    margin: 0 30px;
-    gap: 24px;
+    margin: 0 3.5rem;
+    gap: 3rem;
 }
 
 .btn-login-anon {
@@ -12,61 +12,63 @@
     border-radius: 1px;
     background-color: var(--green);
     padding: 1px;
-    font-size: 16px;
-    line-height: 48px;
+    font-size: 2rem;
+    line-height: 6rem;
     cursor: pointer;
 }
 
 .btn-login-anon-img {
-    width: 48px;
-    height: 48px;
+    width: 6rem;
+    height: 6rem;
     background-color: white;
     border-radius: 1px;
 }
 
 .btn-login-anon-text {
-    margin: 0 20px;
+    margin: 0 2.5rem;
 }
 
 .user-container{
     display: flex;
     align-items: center;
+    justify-content: center;
     border-radius: 1px;
     padding: .5rem;
-    line-height: 48px;
-    gap: 15px;
+    line-height: 6rem;
+    gap: 2rem;
     background-color: white;
-    border-radius: 10px;
+    border-radius: 1.2rem;
 }
 
 .user-image {
-    width: 2rem;
-    height: 2rem;
+    width: 4rem;
+    height: 4rem;
     background-color: white;
     border-radius: 50%;
 }
 
 .user-name {
-    margin-right: 20px;
-    font-size: 1rem;
+    margin-right: 2.5rem;
+    font-size: 2rem;
     font-weight: 600;
+    color: var(--pink);
 }
 
 .user-logout-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    padding: 6px 26px;
-    line-height: 48px;
+    gap: 1.2rem;
+    padding: 1rem 3rem;
+    line-height: 6rem;
     cursor: pointer;
     background-color: white;
-    border-radius: 10px;
+    border-radius: 1.2rem;
     border: none
 }
 
 .user-logout-btn-icon {
-    font-size: 1rem;
+    font-size: 2rem;
 
 }
 
@@ -76,8 +78,19 @@
 
 .user-logout-btn > p {
     font-family: Roboto, arial, sans-serif;
-    font-size: 1rem;
+    font-size: 2rem;
     font-weight: 600;
+    color: var(--pink);
+}
+
+.user-container, .user-logout-btn {
+    height: 5rem;
+}
+
+@media screen and (max-width: 1678px) {    
+    .level-page .user-container > p {
+        display: none;
+    }
 }
 
 @media screen and (max-width: 948px) {

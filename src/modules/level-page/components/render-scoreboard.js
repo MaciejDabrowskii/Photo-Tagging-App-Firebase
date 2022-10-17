@@ -17,7 +17,8 @@ function RenderHighScore()
       {
         if (doc.id === selectedLevel)
         {
-          setHighScoreData(doc.data().highScore.sort((a, b) => a.score - b.score));
+          setHighScoreData(doc.data()
+            .highScore.sort((a, b) => a.score - b.score));
         }
       });
     });
@@ -46,11 +47,11 @@ function RenderHighScore()
                         alt={player.name}
                         className="score-image"
                       />
-                      <p className="score-name">{player.name}</p>
-                    </div>
-                    <div className="score-wrapper">
-                      SCORE:
-                      <span className="score-value">{player.score}</span>
+                      <div className="score-wrapper">
+                        <p className="score-name">{player.name}</p>
+                        SCORE:
+                        <span className="score-value">{player.score}</span>
+                      </div>
                     </div>
                   </div>
                 );
