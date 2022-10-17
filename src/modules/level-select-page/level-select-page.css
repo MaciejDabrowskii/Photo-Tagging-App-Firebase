@@ -49,7 +49,7 @@
     font-size: 4rem;
 }
 
-.spinner>path {
+.spinner > path {
     color: var(--green);
 }
 

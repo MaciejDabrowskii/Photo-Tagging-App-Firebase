@@ -6,13 +6,20 @@ import CharacterMenu from "./components/character-menu";
 import Marker from "./components/marker";
 import { levelStatesMethods } from "../../../../contexts/level-state-context";
 
-function RenderImage({ levelData, setIsPageLoaded })
+function RenderImage({
+  levelData,
+  setIsPageLoaded,
+  showToastErrorMessage,
+  showToastSucessMessage,
+})
 {
   const { characters, imageURL } = levelData;
 
   const [selectorVisible, setSelectorVisible] = useState(false);
 
   const [imageSize, setImageSize] = useState({});
+
+  const [imageRatio, setImageRatio] = useState();
 
   const [selectedCoords, setSelectedCoords] = useState({});
 
@@ -46,15 +53,12 @@ function RenderImage({ levelData, setIsPageLoaded })
 
     const py = Math.round((y / ch) * ih);
 
-    const ratio = cw / iw;
+    Math.round(cw / iw);
 
-    console.log(ratio);
+    setImageRatio(cw / iw);
     setImageSize({ width: cw, height: ch });
 
-    return setSelectedCoords({
-      orginalSize: { x: px, y: py },
-      clientSize: { x: px * ratio, y: py * ratio },
-    });
+    return setSelectedCoords({ x: px, y: py });
   };
 
   useEffect(() =>
@@ -71,15 +75,15 @@ function RenderImage({ levelData, setIsPageLoaded })
     };
   }, []);
 
-  // useEffect(() =>
-  // {
-  //   window.addEventListener("resize", getCoordinates);
+  useEffect(() =>
+  {
+    window.addEventListener("resize", getCoordinates);
 
-  //   return () =>
-  //   {
-  //     window.removeEventListener("resize", getCoordinates);
-  //   };
-  // }, []);
+    return () =>
+    {
+      window.removeEventListener("resize", getCoordinates);
+    };
+  }, []);
 
   return (
     <div className="game-image-container">
@@ -95,8 +99,11 @@ function RenderImage({ levelData, setIsPageLoaded })
         <CharacterMenu
           characters={characters}
           selectedCoords={selectedCoords}
+          imageRatio={imageRatio}
           setSelectorVisible={setSelectorVisible}
-          imageSize={imageSize}
+          imageHeight={imageSize.height}
+          showToastErrorMessage={showToastErrorMessage}
+          showToastSucessMessage={showToastSucessMessage}
         />
         )}
         {
@@ -105,6 +112,8 @@ function RenderImage({ levelData, setIsPageLoaded })
             key={pick.name}
             pick={pick}
             imageSize={imageSize}
+            imageRatio={imageRatio}
+            imageWidth={imageSize.width}
           />
         ))
       }

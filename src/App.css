@@ -12,6 +12,7 @@
   --overlay: rgba(57, 55, 72, 0.22);
   --transparentBlack: rgba(0, 0, 0, 0.73);
   --dark: rgba(29, 31, 34, 1);
+  font-size: 8px;
 }
 
 * {
@@ -20,5 +21,12 @@
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: var(--dark);
+}
+
+.Toastify__toast-body > * {
+  color: white;
+  font-size: 2rem;
+}
+.Toastify__toast-theme--colored.Toastify__toast--success {
+  background-color: var(--green) !important;
 }

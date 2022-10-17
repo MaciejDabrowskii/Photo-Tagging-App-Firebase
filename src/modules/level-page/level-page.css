@@ -10,7 +10,7 @@
     display: flex;
     flex-direction: column;
     padding: 1rem;
-    min-width: 17rem;
+    min-width: 30rem;
 }
 
 .sidebar-left-header {
@@ -67,13 +67,16 @@
 }
 
 .sidebar-right {
-    min-width: 17rem;
+    min-width: 35rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .indicator-container {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 1.5rem;
 }
 
 .indicator-container:last-child .character-indicator-container  {
@@ -81,17 +84,17 @@
 }
 
 .character-indicator-container {
-    padding: 12px;
+    padding: 1.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: white;
-    transition: all 0.5s ease-in-out;
+    transition: background-color 0.5s ease-in-out;
     border-bottom: 3px solid var(--green);
     border-top-left-radius: 20px;
     font-family: 'Raleway', sans-serif;
     font-weight: 700;
-    font-size: 1.3rem;
+    font-size: 2rem;
 }
 
 .character-indicator-container:last-child {
@@ -121,9 +124,9 @@
 
 .character-indicator-checkmark {
     transition: all 0.5s ease-in-out;
-    margin-right: 20px;
+    margin-right: 2.5rem;
     font-size: 2rem;
-    padding: 10px;
+    padding: 1rem;
 }
 
 .character-indicator-checkmark > path {
@@ -137,7 +140,7 @@
     flex-direction: column;
     margin-top: 1rem;
     gap: .5rem;
-    width: 90%;
+    width: 70%;
     aspect-ratio: 1/1;
     border-radius: 50%;
     background-color: var(--green);
@@ -153,7 +156,7 @@
 }
 
 .timer-value {
-    font-size: 2rem;
+    font-size: 3rem;
     color: white;
     font-weight: 700;
 }
@@ -183,6 +186,10 @@
     position: absolute;
 }
 
+.marker-container > * {
+    font-size: 2rem;
+}
+
 .marker-text {
     position: absolute;
     font-family: 'Raleway', sans-serif;
@@ -191,15 +198,14 @@
     background-color: var(--green);
     white-space: nowrap;
     border-radius: 10px;
-    font-size: 1rem;
+    font-size: 2rem;
     font-weight: bolder;
     color: white;
 }
 
 .marker-pin {
-    font-size: 2rem;
     bottom: 0;
-
+    font-size: 4rem;
 }
 .marker-pin > path {
     color: var(--green);
@@ -215,6 +221,11 @@
 .character-container {
     padding: .2rem .5rem;
     transition: all .3s ease-in-out;
+    border-bottom: 1px solid var(--green);
+}
+
+.character-container:last-child {
+    border: unset;
 }
 
 .character-container > button {
@@ -230,4 +241,49 @@
 .character-container:hover {
     background-color: var(--green);
     color: white;
+}
+
+@media screen and (max-width: 1430px) {
+    .sidebar-right, .sidebar-left {
+        min-width: 20rem;
+    }
+
+    .character-indicator-container {
+        padding: .5rem .5rem .5rem 1rem;
+        font-size: 1.5rem;
+    }
+
+    .character-indicator-container > p {
+        margin-left: 1rem;
+    }
+
+    .indicator-container {
+        gap: .5rem;
+    }
+
+    .character-indicator-checkmark {
+        margin-right: unset;
+    }
+
+    .timer-value {
+        font-size: 2rem;
+    }
+
+}
+
+@media screen and (max-width: 920px) {
+    .sidebar-left {
+        display: none
+    }
+
+    .timer-container{
+        flex-direction: row;
+        width: 100%;
+        aspect-ratio: unset;
+        border-radius: unset;
+        padding: 1rem;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+
+    }
 }

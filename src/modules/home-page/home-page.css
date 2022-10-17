@@ -9,7 +9,7 @@
 
 .home-page-logo {
     margin-top: 20vh;
-    font-size: 72px;
+    font-size: 8rem;
     color: var(--green);
 }
 
@@ -18,23 +18,32 @@
     flex-direction: column;
     align-items: center;
     gap: 3vh;
-    padding: 40px;
-    border: 10px solid var(--green);
+    padding: 5rem;
+    border: 1rem solid var(--green);
     border-radius: 20px;
 }
 
 .home-page-login-header {
-    font-size: 42px;
+    font-size: 5rem;
     color: var(--green);
 }
 
 @media screen and (max-width: 569px) {
-    .home-page-logo {
-        font-size: 3rem
+    .home-page {
+        gap: 10vh;
     }
+
+    .home-page-logo {
+        font-size: 5rem
+    }
+
+    .home-page-login-header {
+        font-size: 3.5rem;
+    }
+
     .home-page-login-wrapper {
         border: none;
-        padding: 0;
+        padding: 0 0 5rem 0;
     }
     .home-page-login-wrapper>.buttons-container {
         flex-direction: column;

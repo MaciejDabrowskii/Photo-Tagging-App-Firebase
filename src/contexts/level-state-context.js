@@ -1,5 +1,5 @@
-/* eslint-disable consistent-return */
 /* eslint-disable react/jsx-no-constructed-context-values */
+/* eslint-disable consistent-return */
 /* eslint-disable max-len */
 import React, { useState, useContext } from "react";
 

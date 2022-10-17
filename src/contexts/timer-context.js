@@ -17,7 +17,7 @@ export function TimerProvider({ children })
 
   const startTimer = () =>
   {
-    const newIntervalId = setInterval(() => setTimer((prevState) => prevState + 0.2), 200);
+    const newIntervalId = setInterval(() => setTimer((prevState) => prevState + 0.5), 500);
 
     setIntervalId(newIntervalId);
   };

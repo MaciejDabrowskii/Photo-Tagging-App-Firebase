@@ -1,9 +1,11 @@
 /* eslint-disable max-len */
-import React, { useEffect, useRef, useState } from "react";
+import React, {
+  useEffect, useMemo, useRef, useState,
+} from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLocationPin, faMapPin } from "@fortawesome/free-solid-svg-icons";
+import { faMapPin } from "@fortawesome/free-solid-svg-icons";
 
-function Marker({ pick, imageSize })
+function Marker({ pick, imageWidth, imageRatio })
 {
   const { coordinates, name } = pick;
 
@@ -35,33 +37,28 @@ function Marker({ pick, imageSize })
     setPinDivDimension({ width: pinWidth, height: pinHeight });
   }, []);
 
-  const calculateOverflow = () =>
-  {
-    const { width } = imageSize;
+  const isOverflowing = () => coordinates.x * imageRatio + textDivDimension.width + pinDivDimension.width > imageWidth;
 
-    console.log("calculateOverflow", textDivDimension.width, pinDivDimension.width);
-
-    return coordinates.x + textDivDimension.width + pinDivDimension.width < width;
-  };
+  const isHovering = useMemo(() => hover, [hover]);
 
   const textStyleHover = () => (
-    calculateOverflow()
-      ? { left: 0, transition: ".5s" }
-      : { right: 0, transition: ".5s" }
+    isOverflowing()
+      ? { right: 0, transition: ".5s" }
+      : { left: 0, transition: ".5s" }
   );
 
   const textStyle = () => (
-    calculateOverflow()
-      ? { left: `-${textDivDimension.width}px` }
-      : { right: `-${textDivDimension.width}px` }
+    isOverflowing()
+      ? { right: `-${textDivDimension.width}px` }
+      : { left: `-${textDivDimension.width}px` }
   );
 
   return (
     <div
       className="marker-container"
       style={{
-        left: `${coordinates.x - pinDivDimension.width / 2}px`,
-        top: `${coordinates.y - pinDivDimension.height}px`,
+        left: `${coordinates.x * imageRatio - pinDivDimension.width / 2}px`,
+        top: `${coordinates.y * imageRatio - pinDivDimension.height}px`,
       }}
     >
       <div ref={markerPin}>
@@ -73,12 +70,12 @@ function Marker({ pick, imageSize })
         />
         <div
           className="text-div-wrapper"
-          style={calculateOverflow() ? {
-            left: `${pinDivDimension.width}px`,
+          style={isOverflowing() ? {
+            right: `${pinDivDimension.width}px`,
             width: `${textDivDimension.width}px`,
             display: "inline-block",
           } : {
-            right: `${pinDivDimension.width}px`,
+            left: `${pinDivDimension.width}px`,
             width: `${textDivDimension.width}px`,
             display: "inline-block",
           }}
@@ -93,7 +90,7 @@ function Marker({ pick, imageSize })
             <p
               className="marker-text"
               ref={textMarker}
-              style={hover ? textStyleHover() : textStyle()}
+              style={isHovering ? textStyleHover() : textStyle()}
             >
               {name}
             </p>

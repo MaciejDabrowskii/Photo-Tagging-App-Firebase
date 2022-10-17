@@ -1,5 +1,8 @@
 /* eslint-disable consistent-return */
+import "./level-page.css";
 import React, { useEffect, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { levelStatesMethods } from "../../contexts/level-state-context";
 import { firebaseMethods } from "../../contexts/firebase-context";
 import { getTimerMethods } from "../../contexts/timer-context";
@@ -8,7 +11,6 @@ import RenderImage from "./components/render-image/render-image";
 import PickIndicator from "./components/pick-indicator/pick-indicator";
 import RenderTimer from "./components/render-timer";
 import Navbar from "../navbar/navbar";
-import "./level-page.css";
 
 function RenderLevel()
 {
@@ -34,10 +36,32 @@ function RenderLevel()
     getData();
   }, []);
 
-  // useEffect(() =>
-  // {
-  //   if (isPageLoaded) return startTimer();
-  // }, [isPageLoaded]);
+  const showToastErrorMessage = () => toast.error("Wrong answer!", {
+    position: "top-center",
+    autoClose: 2000,
+    hideProgressBar: true,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "colored",
+  });
+
+  const showToastSucessMessage = () => toast.success("Correct!", {
+    position: "top-center",
+    autoClose: 20000,
+    hideProgressBar: true,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "colored",
+  });
+
+  useEffect(() =>
+  {
+    if (isPageLoaded) return startTimer();
+  }, [isPageLoaded]);
 
   return (
     <div className="level-page">
@@ -50,6 +74,8 @@ function RenderLevel()
               <RenderImage
                 levelData={levelData}
                 setIsPageLoaded={setIsPageLoaded}
+                showToastErrorMessage={showToastErrorMessage}
+                showToastSucessMessage={showToastSucessMessage}
               />
               <div className="sidebar-right">
                 <PickIndicator levelData={levelData} />
@@ -59,6 +85,18 @@ function RenderLevel()
           )
           : <h1>Loading...</h1>
       }
+      <ToastContainer
+        position="top-center"
+        autoClose={2000}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
     </div>
   );
 }
