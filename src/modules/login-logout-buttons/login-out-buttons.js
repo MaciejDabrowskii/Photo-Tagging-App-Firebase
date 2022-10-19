@@ -3,14 +3,13 @@
 import React from "react";
 import GoogleButton from "react-google-button";
 import { useNavigate } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import { isEmpty } from "lodash";
 import { firebaseMethods } from "../../contexts/firebase-context";
 import { UserMethods } from "../../contexts/user-context";
 import anonIcon from "../../assets/anonIcon.png";
 import avatarPlaceholder from "../../assets/avatar-placeholder.png";
 import "./login-out-buttons.css";
+import doorImage from "../../assets/door.png";
 
 function LogButtons()
 {
@@ -67,7 +66,8 @@ function LogButtons()
               <p
                 className="user-name"
               >
-                {user.displayName}
+                {user.displayName.normalize("NFD")
+                  .replace(/[\u0300-\u036f]/g, "")}
               </p>
             </div>
             <button
@@ -75,9 +75,10 @@ function LogButtons()
               className="user-logout-btn"
               onClick={handleLogOut}
             >
-              <FontAwesomeIcon
+              <img
                 className="user-logout-btn-icon"
-                icon={faRightFromBracket}
+                src={doorImage}
+                alt="logout"
               />
               <p>Logout</p>
             </button>

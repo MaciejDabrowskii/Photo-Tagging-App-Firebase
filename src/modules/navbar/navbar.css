@@ -1,8 +1,8 @@
 .navbar {
     display: flex;
-    background-color: var(--green);
+    background-color: var(--red);
     align-items: center;
-    padding: .75rem;
+    padding: 2rem;
     margin-bottom: 2.5rem;
 }
 
@@ -13,7 +13,9 @@
 
 .navbar-logo-text {
     color: white;
-    font-size: 5rem;
+    font-size: 7rem;
+    font-family: "ComicFont1", sans-serif;
+    font-weight: 200;
 }
 
 .navbar-return-container{
@@ -21,9 +23,24 @@
 }
 
 .navbar-return-icon {
-    font-size: 4rem;
+    width: 6rem;
+    height: 3rem;
     margin-right: 3rem;
     cursor: pointer;
+    -webkit-animation-duration: 1s;
+    animation-duration: .8s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(29deg) brightness(105%) contrast(105%)
+}
+
+.navbar-return-icon:hover {
+    animation-name: bounce;
+    -moz-animation-name: bounce;
 }
 
 .fa-circle-left>path{
@@ -49,6 +66,16 @@
     width: 100%;
 }
 
+.level-page .navbar {
+    border-style: solid;
+    border-width: 18px 42px 16px 20px;
+    -moz-border-image: url("../../assets/doodle-assets/box.png") 37 74 44 53 stretch stretch;
+    -webkit-border-image: url("../../assets/doodle-assets/box.png") 37 74 44 53 stretch stretch;
+    -o-border-image: url("../../assets/doodle-assets/box.png") 37 74 44 53 stretch stretch;
+    border-image: url("../../assets/doodle-assets/box.png") 37 74 44 53 stretch stretch;
+    padding: 0;
+}
+
 .level-page .navbar-logo-container {
     display: none;
 }
@@ -59,13 +86,6 @@
     align-items: center;
     justify-content: center;
 }
-
-.level-page .navbar-return-icon {
-    margin: unset
-}
-
-
-
 
 @media screen and (max-width: 485px) {
     .navbar{
@@ -81,13 +101,32 @@
     }
 
     .navbar-logo-text {
-        font-size: 2rem;
+        font-size: 3rem;
     }
 }
 
-@media screen and (max-width: 925px) {    
+@media screen and (max-width: 945px) {    
     .navbar .buttons-container {
         justify-content: center;
         gap: 1.2rem;
+        flex-direction: row;
     }
+}
+
+@keyframes bounce {
+	0%, 100%, 20%, 50%, 80% {
+		-webkit-transform: translateX(0);
+		-ms-transform:     translateX(0);
+		transform:         translateX(0)
+	}
+	40% {
+		-webkit-transform: translateX(-30px);
+		-ms-transform:     translateX(-30px);
+		transform:         translateX(-30px)
+	}
+	60% {
+		-webkit-transform: translateX(-15px);
+		-ms-transform:     translateX(-15px);
+		transform:         translateX(-15px)
+	}
 }

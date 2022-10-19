@@ -1,7 +1,6 @@
-import React, { useEffect } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faClock } from "@fortawesome/free-solid-svg-icons";
+import React from "react";
 import { getTimerMethods } from "../../../contexts/timer-context";
+import clockIcon from "../../../assets/clock.png";
 
 function RenderTimer()
 {
@@ -11,7 +10,11 @@ function RenderTimer()
 
   return (
     <div className="timer-container">
-      <FontAwesomeIcon className="timer-icon fa-shake" icon={faClock} />
+      <img
+        className="timer-image jello-horizontal"
+        alt="clock"
+        src={clockIcon}
+      />
       <p className="timer-value">
         {`${(timer / 60)
           .toString()

@@ -41,17 +41,9 @@ function RenderHighScore()
               {
                 return (
                   <div className="score-container" key={player.score}>
+                    <div className="score-value">{player.score}</div>
                     <div className="score-user">
-                      <img
-                        src={player.avatar}
-                        alt={player.name}
-                        className="score-image"
-                      />
-                      <div className="score-wrapper">
-                        <p className="score-name">{player.name}</p>
-                        SCORE:
-                        <span className="score-value">{player.score}</span>
-                      </div>
+                      <p className="score-name">{player.name}</p>
                     </div>
                   </div>
                 );

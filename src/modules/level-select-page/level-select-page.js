@@ -37,7 +37,7 @@ function LevelSelect()
                 onClick={() => setSelectedLevel(document.name)}
                 to="/game"
                 key={document.name}
-                className="level-container"
+                className="level-container swing-in-top-fwd"
               >
                 <div className="level-image-wrapper">
                   <img

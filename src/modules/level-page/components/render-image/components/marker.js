@@ -4,6 +4,7 @@ import React, {
 } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMapPin } from "@fortawesome/free-solid-svg-icons";
+import markerImage from "../../../../../assets/marker.png";
 
 function Marker({ pick, imageWidth, imageRatio })
 {
@@ -62,10 +63,10 @@ function Marker({ pick, imageWidth, imageRatio })
       }}
     >
       <div ref={markerPin}>
-        <FontAwesomeIcon
+        <img
           onMouseEnter={() => setHover(true)}
           onMouseLeave={() => setHover(false)}
-          icon={faMapPin}
+          src={markerImage}
           className="marker-pin fa-bounce"
         />
         <div

@@ -7,11 +7,35 @@
 /* font-family: 'Work Sans', sans-serif; */
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
+@font-face {
+  font-family: 'ComicFont1';
+  src: url('assets/fonts/orange\ juice\ 2.0.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ComicFont2';
+  src: url('assets/fonts/KOMIKASL.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Cartoon';
+  src: url('assets/fonts/cartoon.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root {
   --green: rgba(94, 206, 123, 1);
   --overlay: rgba(57, 55, 72, 0.22);
   --pink: rgb(206, 95, 176);
   --violet: rgb(125, 95, 206);
+  --blue: #9bc7ea;
+  --red: #e22828;
+  --lightRed: rgb(227, 41, 45);
   --transparentBlack: rgba(0, 0, 0, 0.73);
   --dark: rgba(29, 31, 34, 1);
   font-size: 8px;

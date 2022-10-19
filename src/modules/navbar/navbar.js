@@ -1,7 +1,6 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleLeft } from "@fortawesome/free-regular-svg-icons";
 import { Link } from "react-router-dom";
+import arrowLeft from "../../assets/doodle-assets/arrow-left.png";
 import LogButtons from "../login-logout-buttons/login-out-buttons";
 import "./navbar.css";
 
@@ -12,7 +11,7 @@ function Navbar({ showReturnButton })
       {showReturnButton
       && (
       <Link to="/select-level" className="navbar-return-container">
-        <FontAwesomeIcon className="navbar-return-icon" icon={faCircleLeft} />
+        <img className="navbar-return-icon" alt="arrow left" src={arrowLeft} />
       </Link>
       )}
       <div className="navbar-logo-container">

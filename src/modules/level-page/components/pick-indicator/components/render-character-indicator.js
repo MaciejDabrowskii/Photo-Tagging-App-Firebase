@@ -1,9 +1,8 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import { isGuessed } from "../../../../../utility functions/utility-functions";
 import { levelStatesMethods }
   from "../../../../../contexts/level-state-context";
+import checkmark from "../../../../../assets/doodle-assets/checkmarkV.png";
 
 function CharacterIndicator({ character })
 {
@@ -17,8 +16,9 @@ function CharacterIndicator({ character })
       : "character-indicator-container"}
     >
       <p>{name}</p>
-      <FontAwesomeIcon
-        icon={faCheckCircle}
+      <img
+        src={checkmark}
+        alt="checked"
         className="character-indicator-checkmark"
         style={isGuessed(name, pickedCorrectly)
           ? { opacity: "1" }
