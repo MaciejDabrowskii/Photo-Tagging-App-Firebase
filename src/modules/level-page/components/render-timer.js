@@ -2,16 +2,16 @@ import React from "react";
 import { getTimerMethods } from "../../../contexts/timer-context";
 import clockIcon from "../../../assets/clock.png";
 
-function RenderTimer()
+function RenderTimer({ isOverlayVisible })
 {
-  const {
-    timer, startTimer, stopTimer,
-  } = getTimerMethods();
+  const { timer } = getTimerMethods();
 
   return (
     <div className="timer-container">
       <img
-        className="timer-image jello-horizontal"
+        className={isOverlayVisible
+          ? "timer-image"
+          : "timer-image jello-horizontal"}
         alt="clock"
         src={clockIcon}
       />
