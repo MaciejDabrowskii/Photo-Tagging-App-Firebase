@@ -2,8 +2,6 @@
 import React, {
   useEffect, useMemo, useRef, useState,
 } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMapPin } from "@fortawesome/free-solid-svg-icons";
 import markerImage from "../../../../../assets/marker.png";
 
 function Marker({ pick, imageWidth, imageRatio })
@@ -68,16 +66,17 @@ function Marker({ pick, imageWidth, imageRatio })
           onMouseLeave={() => setHover(false)}
           src={markerImage}
           className="marker-pin fa-bounce"
+          alt="map marker"
         />
         <div
           className="text-div-wrapper"
           style={isOverflowing() ? {
             right: `${pinDivDimension.width}px`,
-            width: `${textDivDimension.width}px`,
+            width: `${textDivDimension.width - 1}px`,
             display: "inline-block",
           } : {
             left: `${pinDivDimension.width}px`,
-            width: `${textDivDimension.width}px`,
+            width: `${textDivDimension.width - 1}px`,
             display: "inline-block",
           }}
         >
