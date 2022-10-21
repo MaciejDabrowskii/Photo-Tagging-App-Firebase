@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import arrowLeft from "../../assets/doodle-assets/arrow-left.png";
+import arrowLeft from "../../assets/doodle-assets/arrow-left-bold.png";
 import LogButtons from "../login-logout-buttons/login-out-buttons";
 import "./navbar.css";
 
