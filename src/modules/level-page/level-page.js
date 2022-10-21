@@ -22,7 +22,7 @@ function RenderLevel()
   const { fetchSelectedLevelData, updateHighscore } = firebaseMethods();
 
   const {
-    startTimer, timer, stopTimer, resetTimer,
+    startTimer, timer, stopTimer,
   } = getTimerMethods();
 
   const { user } = userMethods();
