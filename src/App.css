@@ -29,15 +29,17 @@
 }
 
 :root {
-  --green: rgba(94, 206, 123, 1);
+  --green: rgb(161, 213, 112);
   --overlay: rgba(57, 55, 72, 0.22);
   --pink: rgb(206, 95, 176);
   --violet: rgb(125, 95, 206);
-  --blue: #9bc7ea;
-  --red: #e22828;
+  --blue: rgb(155, 199, 234);
+  --red: rgb(226, 40, 40);
   --lightRed: rgb(227, 41, 45);
   --transparentBlack: rgba(0, 0, 0, 0.73);
   --dark: rgba(29, 31, 34, 1);
+  --blueTransparent: rgba(155, 198, 234, 0.5);
+  --redTransparent: rgba(226, 40, 40, 0.5);
   font-size: 8px;
 }
 
@@ -53,6 +55,11 @@
   color: white;
   font-size: 2rem;
 }
+
 .Toastify__toast-theme--colored.Toastify__toast--success {
   background-color: var(--green) !important;
+}
+
+.Toastify__toast-theme--colored.Toastify__toast--error {
+  background-color: var(--red) !important;
 }
