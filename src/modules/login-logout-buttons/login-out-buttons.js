@@ -5,7 +5,7 @@ import GoogleButton from "react-google-button";
 import { useNavigate } from "react-router-dom";
 import { isEmpty } from "lodash";
 import { firebaseMethods } from "../../contexts/firebase-context";
-import { UserMethods } from "../../contexts/user-context";
+import { userMethods } from "../../contexts/user-context";
 import anonIcon from "../../assets/anonIcon.png";
 import avatarPlaceholder from "../../assets/avatar-placeholder.png";
 import "./login-out-buttons.css";
@@ -15,7 +15,7 @@ function LogButtons()
 {
   const { signIn, LogOutGoogle } = firebaseMethods();
 
-  const { user, setUser } = UserMethods();
+  const { user, setUser } = userMethods();
 
   const navigate = useNavigate();
 

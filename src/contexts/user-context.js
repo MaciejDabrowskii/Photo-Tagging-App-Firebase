@@ -4,7 +4,7 @@ import React, { useState, useContext } from "react";
 
 const User = React.createContext();
 
-export function UserMethods()
+export function userMethods()
 {
   return useContext(User);
 }

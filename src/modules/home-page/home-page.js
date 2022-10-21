@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { isEmpty } from "lodash";
 import { useNavigate } from "react-router-dom";
 import LogButtons from "../login-logout-buttons/login-out-buttons";
-import { UserMethods } from "../../contexts/user-context";
+import { userMethods } from "../../contexts/user-context";
 import "./home-page.css";
 import homePageImage from "../../assets/home-page-image.jpg";
 import doodleSeparator
@@ -11,7 +11,7 @@ import doodleSeparator
 
 function HomePage()
 {
-  const { user } = UserMethods();
+  const { user } = userMethods();
 
   const navigate = useNavigate();
 
@@ -25,7 +25,6 @@ function HomePage()
 
   return (
     <div className="home-page">
-      {/* <div className="home-page-wrapper"> */}
       <img
         src={homePageImage}
         alt="Where is Wally"
@@ -44,7 +43,6 @@ function HomePage()
           <LogButtons />
         </div>
       </div>
-      {/* </div> */}
     </div>
   );
 }

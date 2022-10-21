@@ -1,11 +1,11 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
 import { isEmpty } from "lodash";
-import { UserMethods } from "../../contexts/user-context";
+import { userMethods } from "../../contexts/user-context";
 
 function Protect({ children })
 {
-  const { user } = UserMethods();
+  const { user } = userMethods();
 
   console.log("user", user, isEmpty(user));
 
