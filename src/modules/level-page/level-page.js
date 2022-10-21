@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable consistent-return */
 import "./level-page.css";
 import React, { useEffect, useState } from "react";
@@ -6,23 +7,31 @@ import "react-toastify/dist/ReactToastify.css";
 import { levelStatesMethods } from "../../contexts/level-state-context";
 import { firebaseMethods } from "../../contexts/firebase-context";
 import { getTimerMethods } from "../../contexts/timer-context";
+import { userMethods } from "../../contexts/user-context";
 import RenderHighScore from "./components/render-scoreboard";
 import RenderImage from "./components/render-image/render-image";
 import PickIndicator from "./components/pick-indicator/pick-indicator";
 import RenderTimer from "./components/render-timer";
 import Navbar from "../navbar/navbar";
+import Overlay from "./components/render-endgame-overlay";
 
 function RenderLevel()
 {
-  const { selectedLevel } = levelStatesMethods();
+  const { selectedLevel, pickedCorrectly } = levelStatesMethods();
 
-  const { fetchSelectedLevelData } = firebaseMethods();
+  const { fetchSelectedLevelData, updateHighscore } = firebaseMethods();
 
-  const { startTimer } = getTimerMethods();
+  const {
+    startTimer, timer, stopTimer, resetTimer,
+  } = getTimerMethods();
 
-  const [levelData, setLevelData] = useState();
+  const { user } = userMethods();
+
+  const [levelData, setLevelData] = useState(null);
 
   const [isPageLoaded, setIsPageLoaded] = useState(false);
+
+  const [isOverlayVisible, setIsOverlayVisible] = useState(false);
 
   const getData = async () =>
   {
@@ -31,10 +40,32 @@ function RenderLevel()
       .catch((err) => console.log(err));
   };
 
+  const endGame = async () =>
+  {
+    stopTimer();
+
+    const { displayName, photoURL } = user;
+
+    const highscoreData = {
+      avatar: photoURL,
+      name: displayName,
+      score: timer,
+    };
+
+    setIsOverlayVisible(true);
+    await updateHighscore("Game data", selectedLevel, highscoreData)
+      .catch((err) => console.log(err));
+  };
+
   useEffect(() =>
   {
     getData();
   }, []);
+
+  useEffect(() =>
+  {
+    if (levelData !== null && (pickedCorrectly.length === levelData.characters.length)) endGame();
+  }, [pickedCorrectly]);
 
   const showToastErrorMessage = () => toast.error("Wrong answer!", {
     position: "top-center",
@@ -78,7 +109,7 @@ function RenderLevel()
               />
               <div className="sidebar-right">
                 <PickIndicator levelData={levelData} />
-                <RenderTimer />
+                <RenderTimer isOverlayVisible={isOverlayVisible} />
                 <Navbar showReturnButton />
               </div>
             </div>
@@ -97,6 +128,7 @@ function RenderLevel()
         pauseOnHover
         theme="colored"
       />
+      <Overlay isOverlayVisible={isOverlayVisible} />
     </div>
   );
 }
