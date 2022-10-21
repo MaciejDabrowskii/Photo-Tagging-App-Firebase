@@ -43,7 +43,10 @@ function RenderHighScore()
                   <div className="score-container" key={player.score}>
                     <div className="score-value">{player.score}</div>
                     <div className="score-user">
-                      <p className="score-name">{player.name}</p>
+                      <p className="score-name">
+                        {player.name.normalize("NFD")
+                          .replace(/[\u0300-\u036f]/g, "")}
+                      </p>
                     </div>
                   </div>
                 );
