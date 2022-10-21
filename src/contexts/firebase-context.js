@@ -16,9 +16,11 @@ import {
   doc,
   setDoc,
   getDoc,
+  updateDoc,
+  arrayUnion,
 } from "firebase/firestore";
 
-import { UserMethods } from "./user-context";
+import { userMethods } from "./user-context";
 
 import {
   app, auth, database,
@@ -33,7 +35,7 @@ export function firebaseMethods()
 
 export function FirebaseProvider({ children })
 {
-  const { user, setUser } = UserMethods();
+  const { user, setUser } = userMethods();
   // const [data, setData] = useState();
 
   const signIn = () =>
@@ -64,6 +66,15 @@ export function FirebaseProvider({ children })
     return data;
   };
 
+  const updateHighscore = async (collectionName, documentName, data) =>
+  {
+    const levelRef = doc(database, collectionName, documentName);
+
+    await updateDoc(levelRef, {
+      highScore: arrayUnion(data),
+    });
+  };
+
   const fetchSelectedLevelData = async (
     collectionName,
     selectedLevel,
@@ -92,6 +103,7 @@ export function FirebaseProvider({ children })
     fetchCollectionData,
     addData,
     fetchSelectedLevelData,
+    updateHighscore,
   };
 
   return (
