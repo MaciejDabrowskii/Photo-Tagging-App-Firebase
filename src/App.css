@@ -63,3 +63,18 @@
 .Toastify__toast-theme--colored.Toastify__toast--error {
   background-color: var(--red) !important;
 }
+
+div::-webkit-scrollbar {
+  width: 12px;
+}
+
+div::-webkit-scrollbar-track {
+  background: var(--blueTransparent);
+  border-radius: 20px;
+}
+
+div::-webkit-scrollbar-thumb {
+  background-color: var(--blue);
+  border-radius: 20px;
+  border: 1px solid var(--red);
+}
