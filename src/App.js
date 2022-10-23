@@ -21,7 +21,7 @@ function App()
           <BrowserRouter>
             <LevelStatesProvider>
               <Routes>
-                <Route path="/" element={(<HomePage />)} />
+                <Route path={`${process.env.PUBLIC_URL}/`} element={(<HomePage />)} />
                 <Route path="/select-level" element={(<Protect><LevelSelect /></Protect>)} />
                 <Route
                   path="/game"
