@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Photo-Tagging-App-Firebase/static/css/main.6e4e3e71.css",
-    "main.js": "/Photo-Tagging-App-Firebase/static/js/main.19663ee2.js",
+    "main.js": "/Photo-Tagging-App-Firebase/static/js/main.9826bcf5.js",
     "static/media/orange juice 2.0.woff": "/Photo-Tagging-App-Firebase/static/media/orange juice 2.0.1d9e0b0e7a3742e53c1a.woff",
     "static/media/home-page-image.jpg": "/Photo-Tagging-App-Firebase/static/media/home-page-image.95f504b731c17ac0e941.jpg",
     "static/media/marker.png": "/Photo-Tagging-App-Firebase/static/media/marker.80c3bc2ae2c4366083e2.png",
@@ -16,10 +16,10 @@
     "static/media/door.png": "/Photo-Tagging-App-Firebase/static/media/door.ed965fcb181e70df6e79.png",
     "index.html": "/Photo-Tagging-App-Firebase/index.html",
     "main.6e4e3e71.css.map": "/Photo-Tagging-App-Firebase/static/css/main.6e4e3e71.css.map",
-    "main.19663ee2.js.map": "/Photo-Tagging-App-Firebase/static/js/main.19663ee2.js.map"
+    "main.9826bcf5.js.map": "/Photo-Tagging-App-Firebase/static/js/main.9826bcf5.js.map"
   },
   "entrypoints": [
     "static/css/main.6e4e3e71.css",
-    "static/js/main.19663ee2.js"
+    "static/js/main.9826bcf5.js"
   ]
 }
