@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/Photo-Tagging-App-Firebase/static/css/main.6e4e3e71.css",
+    "main.js": "/Photo-Tagging-App-Firebase/static/js/main.7c187e1a.js",
+    "static/media/orange juice 2.0.woff": "/Photo-Tagging-App-Firebase/static/media/orange juice 2.0.1d9e0b0e7a3742e53c1a.woff",
+    "static/media/home-page-image.jpg": "/Photo-Tagging-App-Firebase/static/media/home-page-image.95f504b731c17ac0e941.jpg",
+    "static/media/marker.png": "/Photo-Tagging-App-Firebase/static/media/marker.80c3bc2ae2c4366083e2.png",
+    "static/media/cartoon.woff": "/Photo-Tagging-App-Firebase/static/media/cartoon.ae0d2a0c2aa778dede81.woff",
+    "static/media/doodle-border-irregular.png": "/Photo-Tagging-App-Firebase/static/media/doodle-border-irregular.89007aa51796716f270f.png",
+    "static/media/KOMIKASL.woff": "/Photo-Tagging-App-Firebase/static/media/KOMIKASL.122bcc04d0469d1ec5f6.woff",
+    "static/media/doodle-border-double.png": "/Photo-Tagging-App-Firebase/static/media/doodle-border-double.b33f1022dbff93b67646.png",
+    "static/media/anonIcon.png": "/Photo-Tagging-App-Firebase/static/media/anonIcon.05663dcdaf047b5aeaa7.png",
+    "static/media/clock.png": "/Photo-Tagging-App-Firebase/static/media/clock.4e2eda5e19ec420cb90d.png",
+    "static/media/box.png": "/Photo-Tagging-App-Firebase/static/media/box.289cfb90697af1ee3d36.png",
+    "static/media/checkmarkV.png": "/Photo-Tagging-App-Firebase/static/media/checkmarkV.58fab9714a05fe23813e.png",
+    "static/media/door.png": "/Photo-Tagging-App-Firebase/static/media/door.ed965fcb181e70df6e79.png",
+    "index.html": "/Photo-Tagging-App-Firebase/index.html",
+    "main.6e4e3e71.css.map": "/Photo-Tagging-App-Firebase/static/css/main.6e4e3e71.css.map",
+    "main.7c187e1a.js.map": "/Photo-Tagging-App-Firebase/static/js/main.7c187e1a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6e4e3e71.css",
+    "static/js/main.7c187e1a.js"
+  ]
+}
