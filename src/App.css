@@ -3,27 +3,27 @@
 /* font-family: 'Roboto', sans-serif; */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 /* font-family: 'Lobster', cursive; */
-@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
 /* font-family: 'Work Sans', sans-serif; */
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 @font-face {
-  font-family: 'ComicFont1';
-  src: url('assets/fonts/orange\ juice\ 2.0.woff') format('woff');
+  font-family: "ComicFont1";
+  src: url("assets/fonts/orange\ juice\ 2.0.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'ComicFont2';
-  src: url('assets/fonts/KOMIKASL.woff') format('woff');
+  font-family: "ComicFont2";
+  src: url("assets/fonts/KOMIKASL.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'Cartoon';
-  src: url('assets/fonts/cartoon.woff') format('woff');
+  font-family: "Cartoon";
+  src: url("assets/fonts/cartoon.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }

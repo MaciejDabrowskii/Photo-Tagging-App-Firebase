@@ -96,18 +96,17 @@ function RenderImage({
           onClick={() => setSelectorVisible((prevState) => !prevState)}
         />
         {selectorVisible && (
-        <CharacterMenu
-          characters={characters}
-          selectedCoords={selectedCoords}
-          imageRatio={imageRatio}
-          setSelectorVisible={setSelectorVisible}
-          imageHeight={imageSize.height}
-          showToastErrorMessage={showToastErrorMessage}
-          showToastSucessMessage={showToastSucessMessage}
-        />
+          <CharacterMenu
+            characters={characters}
+            selectedCoords={selectedCoords}
+            imageRatio={imageRatio}
+            setSelectorVisible={setSelectorVisible}
+            imageHeight={imageSize.height}
+            showToastErrorMessage={showToastErrorMessage}
+            showToastSucessMessage={showToastSucessMessage}
+          />
         )}
-        {
-        pickedCorrectly.map((pick) => (
+        {pickedCorrectly.map((pick) => (
           <Marker
             key={pick.name}
             pick={pick}
@@ -115,8 +114,7 @@ function RenderImage({
             imageRatio={imageRatio}
             imageWidth={imageSize.width}
           />
-        ))
-      }
+        ))}
       </div>
     </div>
   );

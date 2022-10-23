@@ -11,18 +11,21 @@ function CharacterIndicator({ character })
   const { pickedCorrectly } = levelStatesMethods();
 
   return (
-    <div className={isGuessed(name, pickedCorrectly)
-      ? "character-indicator-container correct"
-      : "character-indicator-container"}
+    <div
+      className={
+        isGuessed(name, pickedCorrectly)
+          ? "character-indicator-container correct"
+          : "character-indicator-container"
+      }
     >
       <p>{name}</p>
       <img
         src={checkmark}
         alt="checked"
         className="character-indicator-checkmark"
-        style={isGuessed(name, pickedCorrectly)
-          ? { opacity: "1" }
-          : { opacity: "0" }}
+        style={
+          isGuessed(name, pickedCorrectly) ? { opacity: "1" } : { opacity: "0" }
+        }
       />
     </div>
   );

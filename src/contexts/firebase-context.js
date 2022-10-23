@@ -22,9 +22,7 @@ import {
 
 import { userMethods } from "./user-context";
 
-import {
-  app, auth, database,
-} from "../firebase/firebase-init";
+import { app, auth, database } from "../firebase/firebase-init";
 
 const FirebaseContext = React.createContext();
 
@@ -36,7 +34,6 @@ export function firebaseMethods()
 export function FirebaseProvider({ children })
 {
   const { user, setUser } = userMethods();
-  // const [data, setData] = useState();
 
   const signIn = () =>
   {
@@ -75,10 +72,7 @@ export function FirebaseProvider({ children })
     });
   };
 
-  const fetchSelectedLevelData = async (
-    collectionName,
-    selectedLevel,
-  ) =>
+  const fetchSelectedLevelData = async (collectionName, selectedLevel) =>
   {
     const docRef = doc(database, collectionName, selectedLevel);
 

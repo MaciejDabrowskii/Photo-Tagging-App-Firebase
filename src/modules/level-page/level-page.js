@@ -21,9 +21,7 @@ function RenderLevel()
 
   const { fetchSelectedLevelData, updateHighscore } = firebaseMethods();
 
-  const {
-    startTimer, timer, stopTimer,
-  } = getTimerMethods();
+  const { startTimer, timer, stopTimer } = getTimerMethods();
 
   const { user } = userMethods();
 
@@ -54,7 +52,9 @@ function RenderLevel()
 
     setIsOverlayVisible(true);
     await updateHighscore("Game data", selectedLevel, highscoreData)
-      .catch((err) => console.log(err));
+      .catch(
+        (err) => console.log(err),
+      );
   };
 
   useEffect(() =>
@@ -64,7 +64,10 @@ function RenderLevel()
 
   useEffect(() =>
   {
-    if (levelData !== null && (pickedCorrectly.length === levelData.characters.length)) endGame();
+    if (
+      levelData !== null
+      && pickedCorrectly.length === levelData.characters.length
+    ) endGame();
   }, [pickedCorrectly]);
 
   const showToastErrorMessage = () => toast.error("Wrong answer!", {
@@ -96,26 +99,24 @@ function RenderLevel()
 
   return (
     <div className="level-page">
-      {
-        levelData
-          ? (
-            <div className="level-page-container">
-              <RenderHighScore />
-              <RenderImage
-                levelData={levelData}
-                setIsPageLoaded={setIsPageLoaded}
-                showToastErrorMessage={showToastErrorMessage}
-                showToastSucessMessage={showToastSucessMessage}
-              />
-              <div className="sidebar-right">
-                <PickIndicator levelData={levelData} />
-                <RenderTimer isOverlayVisible={isOverlayVisible} />
-                <Navbar showReturnButton />
-              </div>
-            </div>
-          )
-          : <h1>Loading...</h1>
-      }
+      {levelData ? (
+        <div className="level-page-container">
+          <RenderHighScore />
+          <RenderImage
+            levelData={levelData}
+            setIsPageLoaded={setIsPageLoaded}
+            showToastErrorMessage={showToastErrorMessage}
+            showToastSucessMessage={showToastSucessMessage}
+          />
+          <div className="sidebar-right">
+            <PickIndicator levelData={levelData} />
+            <RenderTimer isOverlayVisible={isOverlayVisible} />
+            <Navbar showReturnButton />
+          </div>
+        </div>
+      ) : (
+        <h1>Loading...</h1>
+      )}
       <ToastContainer
         position="top-center"
         autoClose={2000}

@@ -8,10 +8,7 @@ function PickIndicator({ levelData })
   return (
     <div className="indicator-container">
       {characters.map((character) => (
-        <CharacterIndicator
-          key={character.name}
-          character={character}
-        />
+        <CharacterIndicator key={character.name} character={character} />
       ))}
     </div>
   );

@@ -8,11 +8,14 @@ function Navbar({ showReturnButton })
 {
   return (
     <div className="navbar">
-      {showReturnButton
-      && (
-      <Link to="/select-level" className="navbar-return-container">
-        <img className="navbar-return-icon" alt="arrow left" src={arrowLeft} />
-      </Link>
+      {showReturnButton && (
+        <Link to="/select-level" className="navbar-return-container">
+          <img
+            className="navbar-return-icon"
+            alt="arrow left"
+            src={arrowLeft}
+          />
+        </Link>
       )}
       <div className="navbar-logo-container">
         <h1 className="navbar-logo-text">Where&apos;s Walldo ?</h1>

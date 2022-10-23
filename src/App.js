@@ -21,8 +21,15 @@ function App()
           <BrowserRouter basename={process.env.PUBLIC_URL}>
             <LevelStatesProvider>
               <Routes>
-                <Route path="/" element={(<HomePage />)} />
-                <Route path="/select-level" element={(<Protect><LevelSelect /></Protect>)} />
+                <Route path="/" element={<HomePage />} />
+                <Route
+                  path="/select-level"
+                  element={(
+                    <Protect>
+                      <LevelSelect />
+                    </Protect>
+                  )}
+                />
                 <Route
                   path="/game"
                   element={(
@@ -31,7 +38,7 @@ function App()
                         <RenderLevel />
                       </TimerProvider>
                     </Protect>
-                )}
+                  )}
                 />
               </Routes>
             </LevelStatesProvider>

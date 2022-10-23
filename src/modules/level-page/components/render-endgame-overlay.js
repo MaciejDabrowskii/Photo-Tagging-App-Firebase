@@ -13,9 +13,10 @@ function Overlay({ isOverlayVisible })
   const handleClick = () => navigate("/select-level");
 
   return (
-    <div className={isOverlayVisible
-      ? "overlay-container active"
-      : "overlay-container"}
+    <div
+      className={
+        isOverlayVisible ? "overlay-container active" : "overlay-container"
+      }
     >
       <div className="overlay-message-container">
         <h1 className="overlay-message-header">Congratulations!</h1>
@@ -34,7 +35,6 @@ function Overlay({ isOverlayVisible })
           onClick={handleClick}
         >
           OK
-
         </button>
       </div>
     </div>

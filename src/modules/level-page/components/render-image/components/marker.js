@@ -8,13 +8,15 @@ function Marker({ pick, imageWidth, imageRatio })
 {
   const { coordinates, name } = pick;
 
-  const [textDivDimension, setTextDivDimension] = useState(
-    { width: 0, height: 0 },
-  );
+  const [textDivDimension, setTextDivDimension] = useState({
+    width: 0,
+    height: 0,
+  });
 
-  const [pinDivDimension, setPinDivDimension] = useState(
-    { width: 0, height: 0 },
-  );
+  const [pinDivDimension, setPinDivDimension] = useState({
+    width: 0,
+    height: 0,
+  });
 
   const [hover, setHover] = useState(false);
 
@@ -36,21 +38,20 @@ function Marker({ pick, imageWidth, imageRatio })
     setPinDivDimension({ width: pinWidth, height: pinHeight });
   }, []);
 
-  const isOverflowing = () => coordinates.x * imageRatio + textDivDimension.width + pinDivDimension.width > imageWidth;
+  const isOverflowing = () => coordinates.x * imageRatio
+      + textDivDimension.width
+      + pinDivDimension.width
+    > imageWidth;
 
   const isHovering = useMemo(() => hover, [hover]);
 
-  const textStyleHover = () => (
-    isOverflowing()
-      ? { right: 0, transition: ".5s" }
-      : { left: 0, transition: ".5s" }
-  );
+  const textStyleHover = () => (isOverflowing()
+    ? { right: 0, transition: ".5s" }
+    : { left: 0, transition: ".5s" });
 
-  const textStyle = () => (
-    isOverflowing()
-      ? { right: `-${textDivDimension.width}px` }
-      : { left: `-${textDivDimension.width}px` }
-  );
+  const textStyle = () => (isOverflowing()
+    ? { right: `-${textDivDimension.width}px` }
+    : { left: `-${textDivDimension.width}px` });
 
   return (
     <div
@@ -70,15 +71,19 @@ function Marker({ pick, imageWidth, imageRatio })
         />
         <div
           className="text-div-wrapper"
-          style={isOverflowing() ? {
-            right: `${pinDivDimension.width}px`,
-            width: `${textDivDimension.width - 1}px`,
-            display: "inline-block",
-          } : {
-            left: `${pinDivDimension.width}px`,
-            width: `${textDivDimension.width - 1}px`,
-            display: "inline-block",
-          }}
+          style={
+            isOverflowing()
+              ? {
+                right: `${pinDivDimension.width}px`,
+                width: `${textDivDimension.width - 1}px`,
+                display: "inline-block",
+              }
+              : {
+                left: `${pinDivDimension.width}px`,
+                width: `${textDivDimension.width - 1}px`,
+                display: "inline-block",
+              }
+          }
         >
           <div
             className="text-wrapper"

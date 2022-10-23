@@ -29,36 +29,31 @@ function LevelSelect()
   return (
     <>
       <Navbar showReturnButton={false} />
-      {data
-        ? (
-          <div className="level-select-container">
-            {data.map((document) => (
-              <Link
-                onClick={() => setSelectedLevel(document.name)}
-                to="/game"
-                key={document.name}
-                className="level-container swing-in-top-fwd"
-              >
-                <div className="level-image-wrapper">
-                  <img
-                    src={document.imageURL}
-                    alt={document.name}
-                    className="level-image"
-                  />
-                </div>
-                <p className="level-name">{document.name}</p>
-              </Link>
-            ))}
-          </div>
-        )
-        : (
-          <div className="level-select-spinner-container">
-            <FontAwesomeIcon
-              icon={faSpinner}
-              className="fa-spin-pulse spinner"
-            />
-          </div>
-        )}
+      {data ? (
+        <div className="level-select-container">
+          {data.map((document) => (
+            <Link
+              onClick={() => setSelectedLevel(document.name)}
+              to="/game"
+              key={document.name}
+              className="level-container swing-in-top-fwd"
+            >
+              <div className="level-image-wrapper">
+                <img
+                  src={document.imageURL}
+                  alt={document.name}
+                  className="level-image"
+                />
+              </div>
+              <p className="level-name">{document.name}</p>
+            </Link>
+          ))}
+        </div>
+      ) : (
+        <div className="level-select-spinner-container">
+          <FontAwesomeIcon icon={faSpinner} className="fa-spin-pulse spinner" />
+        </div>
+      )}
     </>
   );
 }

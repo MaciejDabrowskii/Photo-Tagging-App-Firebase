@@ -54,56 +54,50 @@ function LogButtons()
 
   return (
     <div className="buttons-container">
-      {!isEmpty(user)
-        ? (
-          <>
-            <div className="user-container">
-              <img
-                src={user.photoURL ? user.photoURL : avatarPlaceholder}
-                alt={user.displayName}
-                className="user-image"
-              />
-              <p
-                className="user-name"
-              >
-                {user.displayName.normalize("NFD")
-                  .replace(/[\u0300-\u036f]/g, "")}
-              </p>
-            </div>
-            <button
-              type="button"
-              className="user-logout-btn"
-              onClick={handleLogOut}
-            >
-              <img
-                className="user-logout-btn-icon"
-                src={doorImage}
-                alt="logout"
-              />
-              <p>Logout</p>
-            </button>
-          </>
-        )
-        : (
-          <>
-            <GoogleButton
-              className="btn-login-google"
-              onClick={handleLogIn}
+      {!isEmpty(user) ? (
+        <>
+          <div className="user-container">
+            <img
+              src={user.photoURL ? user.photoURL : avatarPlaceholder}
+              alt={user.displayName}
+              className="user-image"
             />
-            <button
-              className="btn-login-anon"
-              type="button"
-              onClick={() => setUser(AnonUser)}
-            >
-              <img
-                src={anonIcon}
-                alt="Anonymous"
-                className="btn-login-anon-img"
-              />
-              <p className="btn-login-anon-text">Anonymous</p>
-            </button>
-          </>
-        )}
+            <p className="user-name">
+              {user.displayName
+                .normalize("NFD")
+                .replace(/[\u0300-\u036f]/g, "")}
+            </p>
+          </div>
+          <button
+            type="button"
+            className="user-logout-btn"
+            onClick={handleLogOut}
+          >
+            <img
+              className="user-logout-btn-icon"
+              src={doorImage}
+              alt="logout"
+            />
+            <p>Logout</p>
+          </button>
+        </>
+      ) : (
+        <>
+          <GoogleButton className="btn-login-google" onClick={handleLogIn} />
+          <button
+            className="btn-login-anon"
+            type="button"
+            onClick={() => setUser(AnonUser)}
+          >
+            <img
+              src={anonIcon}
+              alt="Anonymous"
+              className="btn-login-anon-img"
+            />
+            <p className="btn-login-anon-text">Anonymous</p>
+          </button>
+        </>
+      )}
     </div>
   );
 }

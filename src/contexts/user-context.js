@@ -15,9 +15,5 @@ export function UserProvider({ children })
 
   const methods = { user, setUser };
 
-  return (
-    <User.Provider value={methods}>
-      {children}
-    </User.Provider>
-  );
+  return <User.Provider value={methods}>{children}</User.Provider>;
 }

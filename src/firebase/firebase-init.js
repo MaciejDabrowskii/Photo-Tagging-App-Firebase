@@ -3,36 +3,6 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
-// import { getStoage } from "firebase/storage";
-// import "firebase/database";
-// import "firebase/storage";
-// import {
-//   getFirestore,
-//   collection,
-//   addDoc,
-//   query,
-//   orderBy,
-//   limit,
-//   onSnapshot,
-//   setDoc,
-//   updateDoc,
-//   doc,
-//   serverTimestamp,
-// } from "firebase/firestore";
-// import {
-//   getAuth,
-//   onAuthStateChanged,
-//   GoogleAuthProvider,
-//   signInWithPopup,
-//   signOut,
-// } from "firebase/auth";
-// import {
-//   getStorage,
-//   ref,
-//   uploadBytesResumable,
-//   getDownloadURL,
-// } from 'firebase/storage';
-
 const firebaseConfig = {
   apiKey: "AIzaSyAes36UYuKN7iBSre4eQYym280J4cw_WFM",
   authDomain: "where-s-waldo-3af39.firebaseapp.com",
@@ -45,4 +15,3 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const database = getFirestore(app);
-// export const storage = getStoage(app);

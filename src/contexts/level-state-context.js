@@ -20,7 +20,10 @@ export function LevelStatesProvider({ children })
   {
     if (!pickedCorrectly.some((pick) => pick.name === name))
     {
-      return setPickedCorrectly((prevState) => ([...prevState, { name, coordinates }]));
+      return setPickedCorrectly((prevState) => [
+        ...prevState,
+        { name, coordinates },
+      ]);
     }
   };
 

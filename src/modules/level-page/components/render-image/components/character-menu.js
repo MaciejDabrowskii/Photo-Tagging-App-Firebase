@@ -1,31 +1,28 @@
 /* eslint-disable max-len */
 /* eslint-disable consistent-return */
 /* eslint-disable array-callback-return */
-import React, {
-  useEffect, useRef, useState,
-} from "react";
-import { validatePick }
-  from "../../../../../utility functions/utility-functions";
-import { levelStatesMethods }
-  from "../../../../../contexts/level-state-context";
+import React, { useEffect, useRef, useState } from "react";
+import { validatePick } from "../../../../../utility functions/utility-functions";
+import { levelStatesMethods } from "../../../../../contexts/level-state-context";
 
-function CharacterMenu(
-  {
-    characters,
-    selectedCoords,
-    setSelectorVisible,
-    imageRatio,
-    imageHeight,
-    showToastErrorMessage,
-    showToastSucessMessage,
-  },
-)
+function CharacterMenu({
+  characters,
+  selectedCoords,
+  setSelectorVisible,
+  imageRatio,
+  imageHeight,
+  showToastErrorMessage,
+  showToastSucessMessage,
+})
 {
   const { pickedCorrectly, addCorrect } = levelStatesMethods();
 
   const selectorDiv = useRef();
 
-  const [selectorDivSize, setSelectorDivSize] = useState({ width: 0, height: 0 });
+  const [selectorDivSize, setSelectorDivSize] = useState({
+    width: 0,
+    height: 0,
+  });
 
   useEffect(() =>
   {
@@ -67,17 +64,12 @@ function CharacterMenu(
         if (!pickedCorrectly.some((pick) => pick.name === name))
         {
           return (
-            <div
-              className="character-container"
-              key={name}
-            >
+            <div className="character-container" key={name}>
               <button
                 type="button"
-                onClick={() => (
-                  validatePick(selectedCoords, name, characters)
-                    ? handleCorrect(name)
-                    : handleIncorrect(name)
-                )}
+                onClick={() => (validatePick(selectedCoords, name, characters)
+                  ? handleCorrect(name)
+                  : handleIncorrect(name))}
               >
                 {name}
               </button>

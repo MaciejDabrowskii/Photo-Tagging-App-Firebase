@@ -17,7 +17,10 @@ export function TimerProvider({ children })
 
   const startTimer = () =>
   {
-    const newIntervalId = setInterval(() => setTimer((prevState) => prevState + 0.5), 500);
+    const newIntervalId = setInterval(
+      () => setTimer((prevState) => prevState + 0.5),
+      500,
+    );
 
     setIntervalId(newIntervalId);
   };
@@ -27,12 +30,11 @@ export function TimerProvider({ children })
   const resetTimer = () => setTimer(0);
 
   const methods = {
-    timer, startTimer, stopTimer, resetTimer,
+    timer,
+    startTimer,
+    stopTimer,
+    resetTimer,
   };
 
-  return (
-    <Timer.Provider value={methods}>
-      {children}
-    </Timer.Provider>
-  );
+  return <Timer.Provider value={methods}>{children}</Timer.Provider>;
 }
