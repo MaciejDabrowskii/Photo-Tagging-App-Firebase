@@ -18,10 +18,10 @@ function App()
     <div className="App">
       <UserProvider>
         <FirebaseProvider>
-          <BrowserRouter>
+          <BrowserRouter basename={process.env.PUBLIC_URL}>
             <LevelStatesProvider>
               <Routes>
-                <Route path={`${process.env.PUBLIC_URL}/`} element={(<HomePage />)} />
+                <Route path="/" element={(<HomePage />)} />
                 <Route path="/select-level" element={(<Protect><LevelSelect /></Protect>)} />
                 <Route
                   path="/game"
