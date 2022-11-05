@@ -28,11 +28,11 @@ Firebase tools used:
 
 [PREVIEW](https://maciejdabrowskii.github.io/Photo-Tagging-App-Firebase/)<br/><br/>
 
-<img alt="App preview" src="https://github.com/MaciejDabrowskii/Photo-Tagging-App-Firebase/blob/main/src/assets/preview/app_preview_1.png?raw=true">
+<img alt="App preview" src="https://github.com/MaciejDabrowskii/Photo-Tagging-App-Firebase/blob/main/src/assets/preview/app_preview_1.jpg?raw=true">
 <br/>
-<img alt="App preview" src="https://github.com/MaciejDabrowskii/Photo-Tagging-App-Firebase/blob/main/src/assets/preview/app_preview_3.png?raw=true">
+<img alt="App preview" src="https://github.com/MaciejDabrowskii/Photo-Tagging-App-Firebase/blob/main/src/assets/preview/app_preview_3.jpg?raw=true">
 <br/>
-<img alt="App preview" src="https://github.com/MaciejDabrowskii/Photo-Tagging-App-Firebase/blob/main/src/assets/preview/app_preview_2.png?raw=true">
+<img alt="App preview" src="https://github.com/MaciejDabrowskii/Photo-Tagging-App-Firebase/blob/main/src/assets/preview/app_preview_2.jpg?raw=true">
 <br/>
 
 ### Technologies
