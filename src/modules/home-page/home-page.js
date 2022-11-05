@@ -33,7 +33,7 @@ function HomePage()
       <div className="home-page-login-container">
         <div className="home-page-login-wrapper">
           <div className="home-page-header-wrapper">
-            <h1 className="home-page-title">Where&apos;s Walldo ?</h1>
+            <h1 className="home-page-title">Where&apos;s Walldo?</h1>
             <p className="home-page-subtitle">- A Photo Tagging App</p>
             <span className="separator-curved">
               <img src={doodleSeparator} alt="curved line" />

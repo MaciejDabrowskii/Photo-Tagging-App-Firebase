@@ -7,6 +7,7 @@ import {
   signInWithPopup,
   signOut,
   onAuthStateChanged,
+  signInAnonymously,
 } from "firebase/auth";
 import {
   collection,
@@ -42,7 +43,9 @@ export function FirebaseProvider({ children })
     signInWithPopup(auth, provider);
   };
 
-  const LogOutGoogle = () => signOut(auth);
+  const signInAnon = () => signInAnonymously(auth);
+
+  const LogOut = () => signOut(auth);
 
   const addData = async (object, collectionName, documentName) =>
   {
@@ -85,7 +88,14 @@ export function FirebaseProvider({ children })
   {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) =>
     {
-      setUser(currentUser);
+      if (currentUser !== null && currentUser.displayName === null)
+      {
+        return setUser(
+          { ...currentUser, displayName: "Anonymous" },
+        );
+      }
+
+      return setUser(currentUser);
     });
 
     return () => unsubscribe();
@@ -93,11 +103,12 @@ export function FirebaseProvider({ children })
 
   const methods = {
     signIn,
-    LogOutGoogle,
+    LogOut,
     fetchCollectionData,
     addData,
     fetchSelectedLevelData,
     updateHighscore,
+    signInAnon,
   };
 
   return (

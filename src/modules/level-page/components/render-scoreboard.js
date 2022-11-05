@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import { collection, onSnapshot } from "firebase/firestore";
 import { database } from "../../../firebase/firebase-init";
 import { levelStatesMethods } from "../../../contexts/level-state-context";
+import Spinner from "../../../spinner/spinner";
 
 function RenderHighScore()
 {
@@ -60,7 +61,7 @@ function RenderHighScore()
             }
           })
         ) : (
-          <p>Loading...</p>
+          <Spinner providedClass="sidebar-left" />
         )}
       </div>
     </div>

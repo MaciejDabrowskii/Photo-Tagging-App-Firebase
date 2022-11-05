@@ -1,7 +1,4 @@
 .home-page {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   min-height: 100vh;
   font-family: "Lobster", cursive;
   background: repeating-linear-gradient(
@@ -57,8 +54,8 @@
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   padding: 3rem;
   top: 50%;
-  left: 59%;
-  transform: translate(-50%, -59%);
+  left: 50%;
+  transform: translate(-50%, -50%);
   border-style: solid;
   border-width: 18px 42px 16px 20px;
   -moz-border-image: url("../../assets/doodle-assets/box.png") 37 74 44 53
@@ -85,10 +82,7 @@
   font-weight: 200;
 }
 
-@media screen and (max-width: 569px) {
-  .home-page {
-    gap: 10vh;
-  }
+@media screen and (max-width: 878px) {
 
   .home-page-logo {
     font-size: 5rem;

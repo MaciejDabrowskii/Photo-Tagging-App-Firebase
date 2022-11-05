@@ -13,16 +13,11 @@ import doorImage from "../../assets/door.png";
 
 function LogButtons()
 {
-  const { signIn, LogOutGoogle } = firebaseMethods();
+  const { signIn, LogOut, signInAnon } = firebaseMethods();
 
-  const { user, setUser } = userMethods();
+  const { user } = userMethods();
 
   const navigate = useNavigate();
-
-  const AnonUser = {
-    displayName: "Anonymous",
-    photoURL: anonIcon,
-  };
 
   const handleSignInGoogle = async () =>
   {
@@ -36,12 +31,23 @@ function LogButtons()
     }
   };
 
+  const handleSignInAnonymous = async () =>
+  {
+    try
+    {
+      await signInAnon();
+    }
+    catch (error)
+    {
+      console.log(error);
+    }
+  };
+
   const handleLogOut = async () =>
   {
-    user.email
-      ? await LogOutGoogle()
-        .catch((error) => console.log(error))
-      : setUser({});
+    await LogOut()
+      .catch((error) => console.log(error));
+
     return navigate("/");
   };
 
@@ -87,7 +93,7 @@ function LogButtons()
           <button
             className="btn-login-anon"
             type="button"
-            onClick={() => setUser(AnonUser)}
+            onClick={handleSignInAnonymous}
           >
             <img
               src={anonIcon}

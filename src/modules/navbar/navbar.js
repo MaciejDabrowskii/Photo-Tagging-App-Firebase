@@ -18,7 +18,7 @@ function Navbar({ showReturnButton })
         </Link>
       )}
       <div className="navbar-logo-container">
-        <h1 className="navbar-logo-text">Where&apos;s Walldo ?</h1>
+        <h1 className="navbar-logo-text">Where&apos;s Walldo?</h1>
       </div>
       <LogButtons />
     </div>

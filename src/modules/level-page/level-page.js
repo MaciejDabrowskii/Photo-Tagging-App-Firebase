@@ -14,6 +14,7 @@ import PickIndicator from "./components/pick-indicator/pick-indicator";
 import RenderTimer from "./components/render-timer";
 import Navbar from "../navbar/navbar";
 import Overlay from "./components/render-endgame-overlay";
+import Spinner from "../../spinner/spinner";
 
 function RenderLevel()
 {
@@ -115,7 +116,7 @@ function RenderLevel()
           </div>
         </div>
       ) : (
-        <h1>Loading...</h1>
+        <Spinner providedClass="level-page" />
       )}
       <ToastContainer
         position="top-center"

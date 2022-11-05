@@ -2,9 +2,9 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(360px, 70rem));
   grid-template-rows: repeat(auto-fit, minmax(260px, 70rem));
-  margin-top: 5rem;
+  padding: 2rem 0 5rem 0;
   gap: 5rem;
-  min-height: 83vh;
+  min-height: 88vh;
   justify-content: center;
   background: repeating-linear-gradient(
     var(--blue),

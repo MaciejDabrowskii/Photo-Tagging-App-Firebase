@@ -7,8 +7,6 @@ function Protect({ children })
 {
   const { user } = userMethods();
 
-  console.log("user", user, isEmpty(user));
-
   if (isEmpty(user))
   {
     return <Navigate to="/" />;
